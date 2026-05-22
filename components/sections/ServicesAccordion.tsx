@@ -15,6 +15,12 @@ const services = [
     color: "#00e699",
     desc: "Automate customer conversations, order taking, enquiries, confirmations, and support — directly on WhatsApp, 24/7.",
     features: ["Custom model training", "Transfer learning", "AutoML pipelines", "Model monitoring"],
+    images: [
+      "https://picsum.photos/id/1011/480/320",
+      // "https://picsum.photos/id/1015/480/320",
+      // "https://picsum.photos/id/1025/480/320",
+      // "https://picsum.photos/id/1005/480/320"
+    ],
     bgClass: "from-[#00e699]/10 via-[#00e699]/03 to-transparent",
   },
   {
@@ -25,6 +31,12 @@ const services = [
     color: "#00f0ff",
     desc: "Manage WhatsApp, walk-in, and manual orders in one live dashboard built for operational speed.",
     features: ["Real-time dashboards", "Predictive analytics", "Data pipelines", "BI reports"],
+    images: [
+      "https://picsum.photos/id/1016/480/320",
+      // "https://picsum.photos/id/1018/480/320",
+      // "https://picsum.photos/id/1020/480/320",
+      // "https://picsum.photos/id/1024/480/320"
+    ],
     bgClass: "from-[#00f0ff]/10 via-[#00f0ff]/03 to-transparent",
   },
   {
@@ -35,6 +47,12 @@ const services = [
     color: "#8b5cf6",
     desc: "Generate branded invoices instantly and deliver them automatically through WhatsApp in multiple languages.",
     features: ["Object detection", "Image classification", "Video analytics", "Edge AI deployment"],
+    images: [
+      "https://picsum.photos/id/1027/480/320",
+      // "https://picsum.photos/id/1035/480/320",
+      // "https://picsum.photos/id/1033/480/320",
+      // "https://picsum.photos/id/1031/480/320"
+    ],
     bgClass: "from-[#8b5cf6]/10 via-[#8b5cf6]/03 to-transparent",
   },
   {
@@ -45,6 +63,12 @@ const services = [
     color: "#f59e0b",
     desc: "Send promotions, offers, announcements, and updates to your customer base with high-open-rate WhatsApp campaigns.",
     features: ["LLM fine-tuning", "RAG systems", "Sentiment analysis", "Multi-language NLP"],
+    images: [
+      "https://picsum.photos/id/1041/480/320",
+      // "https://picsum.photos/id/1043/480/320",
+      // "https://picsum.photos/id/1045/480/320",
+      // "https://picsum.photos/id/1050/480/320"
+    ],
     bgClass: "from-[#f59e0b]/10 via-[#f59e0b]/03 to-transparent",
   },
   {
@@ -55,6 +79,12 @@ const services = [
     color: "#3b6cf4",
     desc: "Track revenue, orders, customer activity, and operational performance in real time from one central system.",
     features: ["Demand forecasting", "Anomaly detection", "Risk modeling", "Churn prediction"],
+    images: [
+      "https://picsum.photos/id/1057/480/320",
+      "https://picsum.photos/id/1060/480/320",
+      "https://picsum.photos/id/1062/480/320",
+      "https://picsum.photos/id/1069/480/320"
+    ],
     bgClass: "from-[#3b6cf4]/10 via-[#3b6cf4]/03 to-transparent",
   },
   // {
@@ -169,17 +199,13 @@ export default function ServicesAccordion() {
                           </div>
                         </div>
                         <p className="text-slate-400 text-sm leading-relaxed max-w-sm mb-6">{active.desc}</p>
-                        <ul className="flex flex-col gap-2.5">
-                          {active.features.map((feat) => (
-                            <li key={feat} className="flex items-center gap-2.5 text-sm text-slate-300">
-                              <div className="w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0"
-                                style={{ background: `${active.color}15`, border: `1px solid ${active.color}30` }}>
-                                <div className="w-1.5 h-1.5 rounded-full" style={{ background: active.color }} />
-                              </div>
-                              {feat}
-                            </li>
+                        <div className="">
+                          {(active.images ?? []).map((src, i) => (
+                            <div key={src} className="w-full h-full rounded-md overflow-hidden bg-slate-800">
+                              <img src={src} alt={active.features?.[i] ?? `service-img-${i}`} className="w-full h-full object-cover" />
+                            </div>
                           ))}
-                        </ul>
+                        </div>
                       </div>
 
                       {/* CTA */}

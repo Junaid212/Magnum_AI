@@ -46,5 +46,6 @@ export default function ScrollReveal({
     >
       {children}
     </motion.div>
+    
   );
 }
