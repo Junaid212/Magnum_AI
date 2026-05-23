@@ -5,17 +5,17 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ArrowUpRight } from "lucide-react";
 
 const navLinks = [
-  { label: "Home",       href: "#hero"     },
-  { label: "About Us",   href: "#about"    },
-  { label: "Pages",      href: "#services" },
-  { label: "Services",   href: "#services" },
-  { label: "Blog",       href: "#news"     },
-  { label: "Contact Us", href: "#contact"  },
+  { label: "Home", href: "/" },
+  { label: "About Us", href: "/about" },
+  // { label: "Pages", href: "/services" },
+  { label: "Services", href: "/services" },
+  // { label: "Blog", href: "/#news" },
+  { label: "Contact Us", href: "/contact" },
 ];
 
 export default function Navbar() {
-  const [scrolled,    setScrolled]    = useState(false);
-  const [mobileOpen,  setMobileOpen]  = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 30);
@@ -44,20 +44,20 @@ export default function Navbar() {
         <div className="max-w-[90vw] mx-auto px-6 flex items-center justify-between h-[68px]">
 
           {/* ── Logo ── */}
-          <a href="#hero" className="flex items-center gap-2.5 flex-shrink-0">
+          <a href="/" className="flex items-center gap-2.5 flex-shrink-0">
             {/* Geometric Aivora logo mark */}
             <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
               <path d="M16 2L4 9v14l12 7 12-7V9L16 2z" fill="url(#lg1)" />
               <path d="M16 2L4 9v14l12 7 12-7V9L16 2z" stroke="rgba(0,230,153,0.4)" strokeWidth="0.5" />
-              <path d="M16 8l-7 4v8l7 4 7-4v-8l-7-4z" fill="url(#lg2)" opacity="0.6"/>
+              <path d="M16 8l-7 4v8l7 4 7-4v-8l-7-4z" fill="url(#lg2)" opacity="0.6" />
               <defs>
                 <linearGradient id="lg1" x1="4" y1="2" x2="28" y2="30" gradientUnits="userSpaceOnUse">
                   <stop offset="0%" stopColor="#00e699" />
                   <stop offset="100%" stopColor="#00a8ff" />
                 </linearGradient>
                 <linearGradient id="lg2" x1="9" y1="8" x2="23" y2="24" gradientUnits="userSpaceOnUse">
-                  <stop offset="0%" stopColor="#fff" stopOpacity="0.6"/>
-                  <stop offset="100%" stopColor="#fff" stopOpacity="0.1"/>
+                  <stop offset="0%" stopColor="#fff" stopOpacity="0.6" />
+                  <stop offset="100%" stopColor="#fff" stopOpacity="0.1" />
                 </linearGradient>
               </defs>
             </svg>
@@ -82,7 +82,7 @@ export default function Navbar() {
           {/* ── JOIN NOW ── */}
           <div className="hidden lg:block">
             <a
-              href="#contact"
+              href="/contact"
               className="inline-flex items-center gap-1 bg-[#00e699] text-[#02040a] font-syne font-extrabold text-sm px-7 py-2.5 rounded-full transition-all duration-300 hover:shadow-[0_0_35px_rgba(0,230,153,0.55)] hover:scale-[1.03]"
             >
               JOIN NOW
@@ -144,7 +144,7 @@ export default function Navbar() {
                 ))}
               </nav>
               <a
-                href="#contact"
+                href="/contact"
                 onClick={() => setMobileOpen(false)}
                 className="mt-8 bg-[#00e699] text-[#02040a] font-syne font-extrabold text-sm py-3.5 rounded-full text-center"
               >

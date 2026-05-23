@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Brain, Database, Eye, MessageSquare, LineChart, Bot, ArrowRight } from "lucide-react";
+import { Brain, Database, Eye, MessageSquare, LineChart, ArrowRight } from "lucide-react";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import SectionHeader from "@/components/ui/SectionHeader";
 
@@ -14,7 +14,7 @@ const services = [
     icon: Brain,
     color: "#00e699",
     desc: "Automate customer conversations, order taking, enquiries, confirmations, and support — directly on WhatsApp, 24/7.",
-    features: ["Custom model training", "Transfer learning", "AutoML pipelines", "Model monitoring"],
+    image: "https://images.unsplash.com/photo-1614741118887-7a4ee193a5fa?q=80&w=600&auto=format&fit=crop",
     bgClass: "from-[#00e699]/10 via-[#00e699]/03 to-transparent",
   },
   {
@@ -24,7 +24,7 @@ const services = [
     icon: Database,
     color: "#00f0ff",
     desc: "Manage WhatsApp, walk-in, and manual orders in one live dashboard built for operational speed.",
-    features: ["Real-time dashboards", "Predictive analytics", "Data pipelines", "BI reports"],
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=600&auto=format&fit=crop",
     bgClass: "from-[#00f0ff]/10 via-[#00f0ff]/03 to-transparent",
   },
   {
@@ -34,7 +34,7 @@ const services = [
     icon: Eye,
     color: "#8b5cf6",
     desc: "Generate branded invoices instantly and deliver them automatically through WhatsApp in multiple languages.",
-    features: ["Object detection", "Image classification", "Video analytics", "Edge AI deployment"],
+    image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=600&auto=format&fit=crop",
     bgClass: "from-[#8b5cf6]/10 via-[#8b5cf6]/03 to-transparent",
   },
   {
@@ -44,7 +44,7 @@ const services = [
     icon: MessageSquare,
     color: "#f59e0b",
     desc: "Send promotions, offers, announcements, and updates to your customer base with high-open-rate WhatsApp campaigns.",
-    features: ["LLM fine-tuning", "RAG systems", "Sentiment analysis", "Multi-language NLP"],
+    image: "https://images.unsplash.com/photo-1557200134-90327ee9fafa?q=80&w=600&auto=format&fit=crop",
     bgClass: "from-[#f59e0b]/10 via-[#f59e0b]/03 to-transparent",
   },
   {
@@ -54,19 +54,9 @@ const services = [
     icon: LineChart,
     color: "#3b6cf4",
     desc: "Track revenue, orders, customer activity, and operational performance in real time from one central system.",
-    features: ["Demand forecasting", "Anomaly detection", "Risk modeling", "Churn prediction"],
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=600&auto=format&fit=crop",
     bgClass: "from-[#3b6cf4]/10 via-[#3b6cf4]/03 to-transparent",
   },
-  // {
-  //   id: "auto",
-  //   number: "06",
-  //   title: "AI\nAutomation",
-  //   icon: Bot,
-  //   color: "#00e699",
-  //   desc: "Replace repetitive work with intelligent agents. Our automation solutions handle documents, decisions, and workflows end-to-end.",
-  //   features: ["Agentic workflows", "Document AI", "Process mining", "RPA integration"],
-  //   bgClass: "from-[#00e699]/10 via-[#00e699]/03 to-transparent",
-  // },
 ];
 
 export default function ServicesAccordion() {
@@ -82,13 +72,13 @@ export default function ServicesAccordion() {
           <SectionHeader
             badge="Our Services"
             title={<>What We <span className="text-gradient">Deliver</span></>}
-            subtitle="Six core AI capabilities engineered to transform how your business operates, competes, and grows."
+            subtitle="Five core AI capabilities engineered to transform how your business operates, competes, and grows."
             titleClassName="text-5xl lg:text-6xl"
           />
         </ScrollReveal>
 
-        {/* Horizontal Accordion */}
-        <div className="flex h-[520px] gap-0 overflow-hidden rounded-3xl border border-white/[0.06]" style={{ background: "#060a14" }}>
+        {/* ── DESKTOP LAYOUT (Horizontal Accordion) ── */}
+        <div className="hidden md:flex h-[520px] gap-0 overflow-hidden rounded-3xl border border-white/[0.06]" style={{ background: "#060a14" }}>
           {services.map((svc) => {
             const Icon = svc.icon;
             const isActive = svc.id === activeId;
@@ -146,15 +136,15 @@ export default function ServicesAccordion() {
                   {isActive && (
                     <motion.div
                       key="content"
-                      initial={{ opacity: 0, x: 20 }}
-                      animate={{ opacity: 1, x: 0 }}
+                      initial={{ opacity: 0, y: 15 }}
+                      animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0 }}
                       transition={{ duration: 0.4, delay: 0.15 }}
                       className="absolute inset-0 p-8 flex flex-col justify-between"
                     >
-                      {/* Header */}
-                      <div>
-                        <div className="flex items-center gap-4 mb-6">
+                      {/* Header, Description, and Image Stack */}
+                      <div className="flex flex-col gap-4">
+                        <div className="flex items-center gap-4">
                           <div
                             className="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0"
                             style={{ background: `${active.color}15`, border: `1px solid ${active.color}25`, boxShadow: `0 0 30px ${active.color}20` }}
@@ -168,23 +158,33 @@ export default function ServicesAccordion() {
                             </h3>
                           </div>
                         </div>
-                        <p className="text-slate-400 text-sm leading-relaxed max-w-sm mb-6">{active.desc}</p>
-                        <ul className="flex flex-col gap-2.5">
-                          {active.features.map((feat) => (
-                            <li key={feat} className="flex items-center gap-2.5 text-sm text-slate-300">
-                              <div className="w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0"
-                                style={{ background: `${active.color}15`, border: `1px solid ${active.color}30` }}>
-                                <div className="w-1.5 h-1.5 rounded-full" style={{ background: active.color }} />
-                              </div>
-                              {feat}
-                            </li>
-                          ))}
-                        </ul>
+                        
+                        <p className="text-slate-400 text-sm leading-relaxed max-w-xl">
+                          {active.desc}
+                        </p>
+
+                        {/* Image placed below description */}
+                        <div className="relative w-full h-[220px] overflow-hidden rounded-2xl border border-white/[0.08] bg-[#040814] shadow-inner group">
+                          <img 
+                            src={active.image} 
+                            alt={active.title} 
+                            className="w-full h-full object-cover opacity-70 group-hover:scale-[1.03] transition-transform duration-700" 
+                          />
+                          {/* Shadow/fade overlay */}
+                          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/50 via-transparent to-transparent z-10" />
+                          {/* Glow orb inside image container */}
+                          <div className="absolute -bottom-8 -right-8 w-[140px] h-[140px] orb opacity-25 pointer-events-none"
+                            style={{
+                              background: `radial-gradient(circle, ${active.color}33 0%, transparent 70%)`,
+                              filter: "blur(20px)"
+                            }}
+                          />
+                        </div>
                       </div>
 
-                      {/* CTA */}
+                      {/* CTA at the very bottom */}
                       <button
-                        className="flex items-center gap-2 text-sm font-semibold group w-fit mt-4"
+                        className="flex items-center gap-2 text-sm font-semibold group w-fit mt-2"
                         style={{ color: active.color }}
                       >
                         Explore service
@@ -197,6 +197,79 @@ export default function ServicesAccordion() {
             );
           })}
         </div>
+
+        {/* ── MOBILE LAYOUT (Vertical Expandable Stack) ── */}
+        <div className="flex md:hidden flex-col gap-4">
+          {services.map((svc) => {
+            const Icon = svc.icon;
+            const isActive = svc.id === activeId;
+            return (
+              <div 
+                key={svc.id}
+                onClick={() => setActiveId(svc.id)}
+                className="rounded-2xl border border-white/[0.06] bg-[#060a14] overflow-hidden transition-all duration-300"
+                style={{
+                  borderColor: isActive ? svc.color : "rgba(255,255,255,0.06)",
+                }}
+              >
+                {/* Accordion Header */}
+                <div className="p-5 flex items-center justify-between cursor-pointer">
+                  <div className="flex items-center gap-3">
+                    <div 
+                      className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
+                      style={{ background: `${svc.color}15`, border: `1px solid ${svc.color}25` }}
+                    >
+                      <Icon className="w-5 h-5" style={{ color: svc.color }} />
+                    </div>
+                    <h3 className="font-syne font-bold text-base text-white">
+                      {svc.title.replace("\n", " ")}
+                    </h3>
+                  </div>
+                  <span className="text-[10px] font-mono text-slate-500">{svc.number}</span>
+                </div>
+
+                {/* Expandable Accordion Content */}
+                <AnimatePresence initial={false}>
+                  {isActive && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+                      className="border-t border-white/[0.05]"
+                    >
+                      <div className="p-5 flex flex-col gap-4 bg-[#080d1a]/40">
+                        <p className="text-slate-400 text-xs sm:text-sm leading-relaxed">
+                          {svc.desc}
+                        </p>
+                        
+                        {/* Compact Service Illustration image */}
+                        <div className="relative w-full h-[180px] overflow-hidden rounded-xl border border-white/[0.08] bg-[#040814]">
+                          <img 
+                            src={svc.image} 
+                            alt={svc.title} 
+                            className="w-full h-full object-cover opacity-70" 
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/50 to-transparent" />
+                        </div>
+
+                        {/* CTA Link */}
+                        <button
+                          className="flex items-center gap-2 text-xs font-semibold mt-2"
+                          style={{ color: svc.color }}
+                        >
+                          Explore service
+                          <ArrowRight className="w-3.5 h-3.5" />
+                        </button>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            );
+          })}
+        </div>
+
       </div>
     </section>
   );

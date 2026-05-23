@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, Twitter, Linkedin, Github, Instagram, Facebook } from "lucide-react";
 
 const cols = {
-  Services: ["Machine Learning", "Data Analytics", "Computer Vision", "NLP Solutions", "AI Automation", "Predictive AI"],
+  Services: ["WhatsApp Automation", "Smart Order Management", "Automated Invoicing", "Broadcast Campaigns", "Analytics Dashboard"],
   Company:  ["About Us", "Our Team", "Careers", "News & Blog", "Press Kit", "Partners"],
   Resources:["Documentation", "API Reference", "Case Studies", "Whitepapers", "Community", "Status"],
 };
@@ -27,7 +27,7 @@ export default function Footer() {
           className="font-syne font-black text-white/[0.018] whitespace-nowrap"
           style={{ fontSize: "clamp(80px, 15vw, 220px)", letterSpacing: "-0.04em" }}
         >
-          AIVORA
+          MAGNUM AI
         </span>
       </div>
 
@@ -57,7 +57,7 @@ export default function Footer() {
             style={{ boxShadow: "0 0 30px rgba(0,230,153,0.15)" }}
           >
             <span className="w-2 h-2 rounded-full bg-[#00e699] shadow-[0_0_8px_rgba(0,230,153,0.9)] animate-pulse" />
-            hello@aivora.ai
+            hello@magnum.ai
             <ArrowRight className="w-4 h-4" />
           </motion.a>
         </motion.div>
@@ -75,7 +75,7 @@ export default function Footer() {
                   <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="#02040a" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
               </div>
-              <span className="font-syne font-bold text-lg text-white">Ai<span className="text-[#00e699]">vora</span></span>
+              <span className="font-syne font-bold text-lg text-white">Magnum<span className="text-[#00e699]">AI</span></span>
             </a>
             <p className="text-slate-500 text-sm leading-relaxed mb-6 max-w-xs">
               The leading AI agency helping ambitious businesses unlock transformative growth through intelligent automation.
@@ -115,7 +115,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="border-t border-white/[0.05] py-7 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-slate-600 text-sm">
-            © {new Date().getFullYear()} Aivora. All rights reserved.
+            © {new Date().getFullYear()} MagnumAI. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
             {["Privacy Policy", "Terms of Service", "Cookie Policy"].map((item) => (

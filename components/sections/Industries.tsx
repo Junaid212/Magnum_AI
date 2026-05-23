@@ -6,14 +6,14 @@ import ScrollReveal from "@/components/ui/ScrollReveal";
 import SectionHeader from "@/components/ui/SectionHeader";
 
 const industries = [
-  { icon: Banknote,     label: "Finance",       desc: "Risk models, fraud detection, algo-trading",     color: "#00e699" },
-  { icon: Stethoscope,  label: "Healthcare",    desc: "Diagnostic AI, drug discovery, patient analytics", color: "#00f0ff" },
-  { icon: ShoppingBag,  label: "Retail",        desc: "Demand forecasting, personalization, CV",         color: "#8b5cf6" },
-  { icon: Building2,    label: "Real Estate",   desc: "Valuation models, market prediction",             color: "#3b6cf4" },
-  { icon: Plane,        label: "Aerospace",     desc: "Predictive maintenance, route optimization",      color: "#00e699" },
-  { icon: GraduationCap,label: "Education",     desc: "Adaptive learning, content generation",           color: "#00f0ff" },
-  { icon: Leaf,         label: "Agriculture",   desc: "Crop prediction, precision farming, satellite AI", color: "#8b5cf6" },
-  { icon: Heart,        label: "Wellness",      desc: "Health coaching AI, biometric analysis",          color: "#3b6cf4" },
+  { icon: Banknote,     label: "Restaurants",       desc: "Risk models, fraud detection, algo-trading",     color: "#00e699" },
+  { icon: Stethoscope,  label: "Clinics & Healthcare",    desc: "Diagnostic AI, drug discovery, patient analytics", color: "#00f0ff" },
+  { icon: ShoppingBag,  label: "Retail & Cosmetics",        desc: "Demand forecasting, personalization, CV",         color: "#8b5cf6" },
+  { icon: Building2,    label: "E-commerce",   desc: "Valuation models, market prediction",             color: "#3b6cf4" },
+  { icon: Plane,        label: "Supermarkets",     desc: "Predictive maintenance, route optimization",      color: "#00e699" },
+  { icon: GraduationCap,label: "Hotels & Hospitality",     desc: "Adaptive learning, content generation",           color: "#00f0ff" },
+  { icon: Leaf,         label: "Schools & Training",   desc: "Crop prediction, precision farming, satellite AI", color: "#8b5cf6" },
+  { icon: Heart,        label: "Service Businesses",      desc: "Health coaching AI, biometric analysis",          color: "#3b6cf4" },
 ];
 
 export default function Industries() {
@@ -24,13 +24,13 @@ export default function Industries() {
       <div className="relative container">
         <ScrollReveal className="mb-16">
           <SectionHeader
-            badge="Industries"
-            title={<>AI Across Every <span className="text-gradient">Industry</span></>}
-            subtitle="Our modular AI platform adapts to the unique complexity and regulatory demands of every sector."
+            badge="Industries We Serve"
+            title={<>Built for businesses <span className="text-gradient">across every industry</span></>}
+            // subtitle="Our modular AI platform adapts to the unique complexity and regulatory demands of every sector."
             titleClassName="text-5xl lg:text-6xl"
           />
         </ScrollReveal>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-8 gap-4 ">
           {industries.map(({ icon: Icon, label, desc, color }, i) => (
             <motion.div
               key={label}
@@ -41,13 +41,13 @@ export default function Industries() {
               whileHover={{ y: -5, borderColor: `${color}25` }}
               className="glass p-6 flex flex-col gap-4 cursor-default transition-all duration-300 group"
             >
-              <div className="w-12 h-12 rounded-2xl flex items-center justify-center transition-all duration-300 group-hover:scale-110"
+              <div className="w-16 h-16 rounded-2xl flex items-center justify-center transition-all duration-300 group-hover:scale-110"
                 style={{ background: `${color}10`, border: `1px solid ${color}20` }}>
                 <Icon className="w-6 h-6" style={{ color }} />
               </div>
               <div>
                 <h3 className="font-syne font-bold text-white text-sm mb-1.5">{label}</h3>
-                <p className="text-slate-600 text-xs leading-relaxed">{desc}</p>
+                {/* <p className="text-slate-600 text-xs leading-relaxed">{desc}</p> */}
               </div>
               <div className="h-[2px] w-0 group-hover:w-8 rounded-full transition-all duration-400 mt-auto" style={{ background: color }} />
             </motion.div>

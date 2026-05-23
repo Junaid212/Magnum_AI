@@ -21,7 +21,7 @@ import FAQ             from "@/components/sections/FAQ";
 
 export default function Home() {
   return (
-    <main className="relative bg-[#02040a] overflow-hidden">
+    <main className="relative bg-[#02040a]">
       <Navbar />
       <HeroSection />
       {/* <LogoMarquee /> */}
@@ -33,8 +33,8 @@ export default function Home() {
       <ProjectsStack />
       <Industries />
       {/* <Testimonials /> */}
-      <AchievementsForm />
-      <LatestNews />
+      {/* <AchievementsForm /> */}
+      {/* <LatestNews /> */}
       {/* <Pricing /> */}
       {/* <FAQ /> */}
       <Footer />
