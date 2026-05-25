@@ -14,7 +14,7 @@ const services = [
     icon: Brain,
     color: "#00e699",
     desc: "Automate customer conversations, order taking, enquiries, confirmations, and support — directly on WhatsApp, 24/7.",
-    image: "https://images.unsplash.com/photo-1614741118887-7a4ee193a5fa?q=80&w=600&auto=format&fit=crop",
+    image: "https://i.pinimg.com/736x/0d/61/0b/0d610bf2866010a898c7c3a2b9163153.jpg",
     bgClass: "from-[#00e699]/10 via-[#00e699]/03 to-transparent",
   },
   {
@@ -34,7 +34,7 @@ const services = [
     icon: Eye,
     color: "#8b5cf6",
     desc: "Generate branded invoices instantly and deliver them automatically through WhatsApp in multiple languages.",
-    image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=600&auto=format&fit=crop",
+    image: "https://i.pinimg.com/1200x/4c/b8/08/4cb8082a2dbc919cebb8bd594221d3c5.jpg",
     bgClass: "from-[#8b5cf6]/10 via-[#8b5cf6]/03 to-transparent",
   },
   {
@@ -44,7 +44,7 @@ const services = [
     icon: MessageSquare,
     color: "#f59e0b",
     desc: "Send promotions, offers, announcements, and updates to your customer base with high-open-rate WhatsApp campaigns.",
-    image: "https://images.unsplash.com/photo-1557200134-90327ee9fafa?q=80&w=600&auto=format&fit=crop",
+    image: "https://i.pinimg.com/736x/ff/bc/eb/ffbceb183db64834530576f48f3ffe30.jpg",
     bgClass: "from-[#f59e0b]/10 via-[#f59e0b]/03 to-transparent",
   },
   {

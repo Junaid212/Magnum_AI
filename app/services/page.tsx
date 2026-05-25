@@ -15,39 +15,12 @@ import {
   Search, 
   FileCode2, 
   Zap, 
-  LineChart 
+  LineChart,
+  FileText,
+  Megaphone
 } from "lucide-react";
 
-const services = [
-  {
-    icon: MessageSquare,
-    title: "WhatsApp-First Chatbots",
-    desc: "We turn conversational threads into revenue pipelines. Automate order menus, booking schedules, and support routes directly inside the application your customers use daily.",
-    color: "#00e699",
-    features: ["Interactive product catalogs", "Sleek appointment selectors", "Auto-translate responses", "Live-agent transfer protocols"],
-  },
-  {
-    icon: Cpu,
-    title: "Operations Automation",
-    desc: "Cut administrative labor in half. Our systems automatically handle invoice generation, instant delivery updates, support tickets, and direct data pipelines so your business runs 24/7.",
-    color: "#00f0ff",
-    features: ["Automatic PDF invoices", "Status broadcast schedules", "CRM pipeline triggers", "Instant SMS & Email hooks"],
-  },
-  {
-    icon: Database,
-    title: "AI Agents & LLM Core",
-    desc: "We construct brainpower tailored to your internal knowledge bases. Train AI agents to query your specific company policies, lookup dynamic SQL records, and respond with human intelligence.",
-    color: "#8b5cf6",
-    features: ["Custom data fine-tuning", "Retrieval-Augmented Generation (RAG)", "Intent detection neural nets", "Multi-lingual capabilities"],
-  },
-  {
-    icon: Layers,
-    title: "Enterprise System Bridges",
-    desc: "Connect your new AI operations directly to your legacy codebase and external SaaS. We build bridges linking Shopify, Salesforce, Stripe, PostgreSQL databases, and proprietary APIs.",
-    color: "#3b6cf4",
-    features: ["Real-time inventory syncing", "Secure Stripe invoice payloads", "Lead capturing pipelines", "Proprietary database adaptors"],
-  },
-];
+// Services array removed for handcrafted bento grid implementation
 
 const steps = [
   {
@@ -133,60 +106,278 @@ export default function ServicesPage() {
             />
           </ScrollReveal>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            {services.map(({ icon: Icon, title, desc, color, features }, i) => (
-              <motion.div
-                key={title}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.65, delay: i * 0.12 }}
-                className="glass p-8 flex flex-col gap-6 relative group overflow-hidden"
-              >
-                {/* Accent border on hover */}
-                <div 
-                  className="absolute left-0 top-0 bottom-0 w-[3px] opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  style={{ background: `linear-gradient(to bottom, transparent, ${color}, transparent)` }}
-                />
-                
-                {/* Glow spot */}
-                <div 
-                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-                  style={{ background: `radial-gradient(circle at 10% 10%, ${color}08 0%, transparent 60%)` }}
-                />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* 1. WhatsApp Automation */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="glass p-8 flex flex-col justify-between relative group overflow-hidden rounded-3xl border border-white/[0.05] hover:border-[#00e699]/30 transition-all duration-300 md:col-span-2 min-h-[380px]"
+            >
+              <div className="absolute left-0 top-0 bottom-0 w-[3px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-b from-[#00e699] to-transparent" />
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none bg-[radial-gradient(circle_at_10%_10%,#00e69908_0%,transparent_60%)]" />
 
-                <div className="flex items-center gap-4">
-                  <div 
-                    className="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0"
-                    style={{ 
-                      background: `${color}12`, 
-                      border: `1px solid ${color}25`
-                    }}
-                  >
-                    <Icon className="w-6 h-6" style={{ color }} />
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center h-full">
+                <div className="lg:col-span-7 flex flex-col justify-between h-full py-2">
+                  <div>
+                    <div className="w-12 h-12 rounded-2xl flex items-center justify-center bg-[#00e699]/10 border border-[#00e699]/20 mb-5">
+                      <MessageSquare className="w-6 h-6 text-[#00e699]" />
+                    </div>
+                    <h3 className="font-syne font-extrabold text-white text-2xl lg:text-3xl mb-4">WhatsApp Automation</h3>
+                    <p className="text-slate-400 text-sm lg:text-base leading-relaxed">
+                      Automate customer conversations, order taking, enquiries, confirmations, and support directly on WhatsApp, 24/7.
+                    </p>
                   </div>
-                  <h3 className="font-syne font-extrabold text-white text-xl lg:text-2xl">{title}</h3>
+                  <div className="flex flex-wrap gap-2 mt-6">
+                    <span className="text-[10px] font-syne font-bold uppercase tracking-wider text-[#00e699] bg-[#00e699]/08 px-3 py-1.5 rounded-full border border-[#00e699]/15">
+                      24/7 Response
+                    </span>
+                    <span className="text-[10px] font-syne font-bold uppercase tracking-wider text-slate-400 bg-white/[0.03] px-3 py-1.5 rounded-full border border-white/[0.05]">
+                      Smart Order Flow
+                    </span>
+                  </div>
                 </div>
 
-                <p className="text-slate-400 text-sm lg:text-base leading-relaxed">
-                  {desc}
+                <div className="lg:col-span-5 w-full">
+                  <div className="relative w-full rounded-2xl bg-[#040814]/80 border border-white/[0.08] p-4 font-sans text-[11px] flex flex-col gap-3 shadow-2xl">
+                    <div className="flex items-center gap-2 pb-2 border-b border-white/[0.05]">
+                      <div className="w-2 h-2 rounded-full bg-[#00e699] animate-pulse" />
+                      <span className="font-syne font-bold text-slate-300">MAGNUM AI Bot</span>
+                      <span className="text-[9px] text-slate-500 ml-auto">Active 24/7</span>
+                    </div>
+                    <div className="flex flex-col gap-2.5 max-h-[160px] overflow-y-auto pr-1">
+                      <div className="self-end bg-blue-600/15 border border-blue-500/20 text-slate-300 p-2.5 rounded-2xl rounded-tr-none max-w-[85%]">
+                        Hi, I'd like to order a Spicy Chicken Pizza. 🍕
+                      </div>
+                      <div className="self-start bg-emerald-500/10 border border-[#00e699]/20 text-slate-300 p-2.5 rounded-2xl rounded-tl-none max-w-[85%]">
+                        Checking menu... Yes! 🍗 Spicy Chicken Pizza added. Would you like a drink?
+                      </div>
+                      <div className="self-end bg-blue-600/15 border border-blue-500/20 text-slate-300 p-2.5 rounded-2xl rounded-tr-none max-w-[85%]">
+                        No, just the pizza!
+                      </div>
+                      <div className="self-start bg-emerald-500/10 border border-[#00e699]/20 text-slate-300 p-2.5 rounded-2xl rounded-tl-none max-w-[85%]">
+                        Perfect! Total is $18.50. Order #4829 is confirmed. ✅ Invoice sent!
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* 2. Smart Order Management */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="glass p-8 flex flex-col justify-between relative group overflow-hidden rounded-3xl border border-white/[0.05] hover:border-[#00f0ff]/30 transition-all duration-300 md:col-span-1 min-h-[380px]"
+            >
+              <div className="absolute left-0 top-0 bottom-0 w-[3px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-b from-[#00f0ff] to-transparent" />
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none bg-[radial-gradient(circle_at_10%_10%,#00f0ff08_0%,transparent_60%)]" />
+
+              <div>
+                <div className="w-12 h-12 rounded-2xl flex items-center justify-center bg-[#00f0ff]/10 border border-[#00f0ff]/20 mb-5">
+                  <Cpu className="w-6 h-6 text-[#00f0ff]" />
+                </div>
+                <h3 className="font-syne font-extrabold text-white text-2xl mb-3">Smart Order Management</h3>
+                <p className="text-slate-400 text-sm leading-relaxed mb-6">
+                  Manage WhatsApp, walk-in, and manual orders in one live dashboard built for operational speed.
                 </p>
+              </div>
 
-                <div className="h-px bg-white/[0.06] w-full my-2" />
-
-                <div>
-                  <h4 className="font-syne font-bold text-xs text-white uppercase tracking-wider mb-4">Key Features</h4>
-                  <ul className="grid grid-cols-2 gap-3">
-                    {features.map((feat) => (
-                      <li key={feat} className="flex items-center gap-2 text-slate-500 text-xs">
-                        <CheckCircle2 className="w-3.5 h-3.5 flex-shrink-0 text-[#00e699]" />
-                        <span className="leading-tight">{feat}</span>
-                      </li>
-                    ))}
-                  </ul>
+              <div className="flex flex-col gap-2 w-full bg-[#040814]/60 border border-white/[0.06] rounded-2xl p-3.5 text-[10px]">
+                <div className="flex items-center justify-between text-slate-500 font-syne font-bold uppercase tracking-wider text-[8px] pb-1 border-b border-white/[0.05]">
+                  <span>Source</span>
+                  <span>Total</span>
+                  <span>Status</span>
                 </div>
-              </motion.div>
-            ))}
+                <div className="flex items-center justify-between py-1.5 border-b border-white/[0.02]">
+                  <div className="flex items-center gap-1.5">
+                    <span className="text-[#00e699]">🟢 WhatsApp</span>
+                    <span className="text-slate-500">#4829</span>
+                  </div>
+                  <span className="text-slate-300 font-bold font-mono">$18.50</span>
+                  <span className="px-2 py-0.5 rounded-full bg-[#00e699]/10 text-[#00e699] text-[8px] font-medium border border-[#00e699]/20">Active</span>
+                </div>
+                <div className="flex items-center justify-between py-1.5 border-b border-white/[0.02]">
+                  <div className="flex items-center gap-1.5">
+                    <span className="text-[#f59e0b]">🟡 Walk-In</span>
+                    <span className="text-slate-500">#4828</span>
+                  </div>
+                  <span className="text-slate-300 font-bold font-mono">$4.50</span>
+                  <span className="px-2 py-0.5 rounded-full bg-[#f59e0b]/10 text-[#f59e0b] text-[8px] font-medium border border-[#f59e0b]/20">Prep</span>
+                </div>
+                <div className="flex items-center justify-between py-1.5">
+                  <div className="flex items-center gap-1.5">
+                    <span className="text-[#00f0ff]">🔵 Manual</span>
+                    <span className="text-slate-500">#4827</span>
+                  </div>
+                  <span className="text-slate-300 font-bold font-mono">$32.00</span>
+                  <span className="px-2 py-0.5 rounded-full bg-[#00f0ff]/10 text-[#00f0ff] text-[8px] font-medium border border-[#00f0ff]/20">Done</span>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* 3. Automated Invoicing */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="glass p-8 flex flex-col justify-between relative group overflow-hidden rounded-3xl border border-white/[0.05] hover:border-[#8b5cf6]/30 transition-all duration-300 md:col-span-1 min-h-[380px]"
+            >
+              <div className="absolute left-0 top-0 bottom-0 w-[3px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-b from-[#8b5cf6] to-transparent" />
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none bg-[radial-gradient(circle_at_10%_10%,#8b5cf608_0%,transparent_60%)]" />
+
+              <div>
+                <div className="w-12 h-12 rounded-2xl flex items-center justify-center bg-[#8b5cf6]/10 border border-[#8b5cf6]/20 mb-5">
+                  <FileText className="w-6 h-6 text-[#8b5cf6]" />
+                </div>
+                <h3 className="font-syne font-extrabold text-white text-2xl mb-3">Automated Invoicing</h3>
+                <p className="text-slate-400 text-sm leading-relaxed mb-6">
+                  Generate branded invoices instantly and deliver them automatically through WhatsApp in multiple languages.
+                </p>
+              </div>
+
+              <div className="relative w-full rounded-2xl bg-[#040814]/70 border border-white/[0.08] p-4 text-[10px] font-mono flex flex-col gap-2 shadow-2xl">
+                <div className="flex justify-between items-start border-b border-white/[0.05] pb-2">
+                  <div>
+                    <span className="font-syne font-extrabold text-white text-xs tracking-wider">MAGNUM CO.</span>
+                    <p className="text-[8px] text-slate-500 font-sans mt-0.5">Automated Invoice</p>
+                  </div>
+                  <span className="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 font-sans font-bold text-[8px] tracking-wider border border-emerald-500/20">PAID</span>
+                </div>
+                <div className="flex justify-between text-slate-400">
+                  <span>Order #4829</span>
+                  <span>$18.50</span>
+                </div>
+                <div className="flex justify-between text-slate-400">
+                  <span>Tax (5%)</span>
+                  <span>$0.92</span>
+                </div>
+                <div className="flex justify-between text-white font-bold border-t border-white/[0.05] pt-2">
+                  <span>Total</span>
+                  <span>$19.42</span>
+                </div>
+                <div className="text-[8px] text-[#8b5cf6] font-sans text-center mt-1">
+                  ✓ PDF generated & delivered via WhatsApp
+                </div>
+              </div>
+            </motion.div>
+
+            {/* 4. Broadcast Campaigns */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="glass p-8 flex flex-col justify-between relative group overflow-hidden rounded-3xl border border-white/[0.05] hover:border-[#f59e0b]/30 transition-all duration-300 md:col-span-1 min-h-[380px]"
+            >
+              <div className="absolute left-0 top-0 bottom-0 w-[3px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-b from-[#f59e0b] to-transparent" />
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none bg-[radial-gradient(circle_at_10%_10%,#f59e0b08_0%,transparent_60%)]" />
+
+              <div>
+                <div className="w-12 h-12 rounded-2xl flex items-center justify-center bg-[#f59e0b]/10 border border-[#f59e0b]/20 mb-5">
+                  <Megaphone className="w-6 h-6 text-[#f59e0b]" />
+                </div>
+                <h3 className="font-syne font-extrabold text-white text-2xl mb-3">Broadcast Campaigns</h3>
+                <p className="text-slate-400 text-sm leading-relaxed mb-6">
+                  Send promotions, offers, announcements, and updates to your customer base with high-open-rate WhatsApp campaigns.
+                </p>
+              </div>
+
+              <div className="flex flex-col gap-2.5 w-full bg-[#040814]/60 border border-white/[0.06] rounded-2xl p-3.5 text-xs">
+                <div className="flex justify-between text-[10px] text-slate-400 font-syne">
+                  <span>Campaign: <strong className="text-white font-semibold">Weekend Promo</strong></span>
+                  <span className="text-[#f59e0b] font-bold">100% Sent</span>
+                </div>
+                <div className="w-full bg-white/[0.04] h-2 rounded-full overflow-hidden border border-white/[0.05]">
+                  <div className="bg-gradient-to-r from-[#f59e0b] to-[#ffaa00] h-full rounded-full w-[96%]" />
+                </div>
+                <div className="grid grid-cols-2 gap-2 mt-1">
+                  <div className="bg-white/[0.02] border border-white/[0.04] p-2 rounded-xl text-center">
+                    <p className="text-[8px] text-slate-500 uppercase tracking-wider mb-0.5">Open Rate</p>
+                    <p className="text-xs font-bold text-emerald-400 font-syne">98.2% 🔥</p>
+                  </div>
+                  <div className="bg-white/[0.02] border border-white/[0.04] p-2 rounded-xl text-center">
+                    <p className="text-[8px] text-slate-500 uppercase tracking-wider mb-0.5">CTR</p>
+                    <p className="text-xs font-bold text-[#f59e0b] font-syne">24.5%</p>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* 5. Analytics Dashboard */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="glass p-8 flex flex-col justify-between relative group overflow-hidden rounded-3xl border border-white/[0.05] hover:border-[#3b6cf4]/30 transition-all duration-300 md:col-span-1 min-h-[380px]"
+            >
+              <div className="absolute left-0 top-0 bottom-0 w-[3px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-b from-[#3b6cf4] to-transparent" />
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none bg-[radial-gradient(circle_at_10%_10%,#3b6cf408_0%,transparent_60%)]" />
+
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center h-full">
+                <div className="lg:col-span-7 flex flex-col justify-between h-full py-2">
+                  <div>
+                    <div className="w-12 h-12 rounded-2xl flex items-center justify-center bg-[#3b6cf4]/10 border border-[#3b6cf4]/20 mb-5">
+                      <LineChart className="w-6 h-6 text-[#3b6cf4]" />
+                    </div>
+                    <h3 className="font-syne font-extrabold text-white text-2xl lg:text-3xl mb-4">Analytics Dashboard</h3>
+                    <p className="text-slate-400 text-sm lg:text-base leading-relaxed">
+                      Track revenue, orders, customer activity, and operational performance in real time from one central system.
+                    </p>
+                  </div>
+                  <div className="flex flex-wrap gap-2 mt-6">
+                    <span className="text-[10px] font-syne font-bold uppercase tracking-wider text-[#3b6cf4] bg-[#3b6cf4]/08 px-3 py-1.5 rounded-full border border-[#3b6cf4]/15">
+                      Live Performance
+                    </span>
+                    <span className="text-[10px] font-syne font-bold uppercase tracking-wider text-slate-400 bg-white/[0.03] px-3 py-1.5 rounded-full border border-white/[0.05]">
+                      Export CSV/PDF
+                    </span>
+                  </div>
+                </div>
+
+                <div className="lg:col-span-5 w-full">
+                  <div className="relative w-full rounded-2xl bg-[#040814]/80 border border-white/[0.08] p-4 text-xs flex flex-col gap-3.5 shadow-2xl">
+                    <div className="flex justify-between items-center">
+                      <span className="font-syne font-bold text-slate-300">Revenue Growth</span>
+                      <span className="text-[9px] text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded-full font-bold">+34.8%</span>
+                    </div>
+                    <div className="relative w-full h-24 flex items-end">
+                      <svg viewBox="0 0 100 40" className="w-full h-full text-[#3b6cf4]">
+                        <defs>
+                          <linearGradient id="chartGlow" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stopColor="#3b6cf4" stopOpacity="0.4" />
+                            <stop offset="100%" stopColor="#3b6cf4" stopOpacity="0.0" />
+                          </linearGradient>
+                        </defs>
+                        <path
+                          d="M0 35 Q 20 20, 40 28 T 80 10 T 100 5 L 100 40 L 0 40 Z"
+                          fill="url(#chartGlow)"
+                        />
+                        <path
+                          d="M0 35 Q 20 20, 40 28 T 80 10 T 100 5"
+                          fill="none"
+                          stroke="#3b6cf4"
+                          strokeWidth="2.5"
+                          strokeLinecap="round"
+                        />
+                        <circle cx="100" cy="5" r="3" fill="#3b6cf4" className="animate-pulse" />
+                      </svg>
+                    </div>
+                    <div className="flex justify-between items-center text-[9px] text-slate-500 font-syne uppercase border-t border-white/[0.05] pt-2">
+                      <span>Mon</span>
+                      <span>Wed</span>
+                      <span>Fri</span>
+                      <span>Sun</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>

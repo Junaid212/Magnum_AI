@@ -20,11 +20,11 @@ function IconSignal() {
           <stop stopColor="#4f8ef7" /><stop offset="1" stopColor="#00e699" />
         </linearGradient>
       </defs>
-      <circle cx="24" cy="34" r="4" fill="url(#sig1)" opacity="0.9"/>
-      <path d="M14 28 Q24 16 34 28" stroke="url(#sig1)" strokeWidth="2.5" strokeLinecap="round" fill="none" opacity="0.7"/>
-      <path d="M8 22 Q24 6 40 22"  stroke="url(#sig1)" strokeWidth="2.5" strokeLinecap="round" fill="none" opacity="0.45"/>
-      <line x1="24" y1="34" x2="24" y2="42" stroke="url(#sig1)" strokeWidth="2.5" strokeLinecap="round" opacity="0.6"/>
-      <path d="M18 42 h12" stroke="url(#sig1)" strokeWidth="2.5" strokeLinecap="round" opacity="0.5"/>
+      <circle cx="24" cy="34" r="4" fill="url(#sig1)" opacity="0.9" />
+      <path d="M14 28 Q24 16 34 28" stroke="url(#sig1)" strokeWidth="2.5" strokeLinecap="round" fill="none" opacity="0.7" />
+      <path d="M8 22 Q24 6 40 22" stroke="url(#sig1)" strokeWidth="2.5" strokeLinecap="round" fill="none" opacity="0.45" />
+      <line x1="24" y1="34" x2="24" y2="42" stroke="url(#sig1)" strokeWidth="2.5" strokeLinecap="round" opacity="0.6" />
+      <path d="M18 42 h12" stroke="url(#sig1)" strokeWidth="2.5" strokeLinecap="round" opacity="0.5" />
     </svg>
   );
 }
@@ -37,10 +37,10 @@ function IconPerson() {
           <stop stopColor="#00e699" /><stop offset="1" stopColor="#00a8ff" />
         </linearGradient>
       </defs>
-      <circle cx="24" cy="14" r="7" fill="url(#per1)" opacity="0.85"/>
-      <path d="M8 42 C8 30 40 30 40 42" stroke="url(#per1)" strokeWidth="2.5" strokeLinecap="round" fill="none" opacity="0.8"/>
-      <circle cx="36" cy="20" r="3" fill="#00e699" opacity="0.6"/>
-      <path d="M36 20 L42 14" stroke="#00e699" strokeWidth="1.5" strokeLinecap="round" opacity="0.5"/>
+      <circle cx="24" cy="14" r="7" fill="url(#per1)" opacity="0.85" />
+      <path d="M8 42 C8 30 40 30 40 42" stroke="url(#per1)" strokeWidth="2.5" strokeLinecap="round" fill="none" opacity="0.8" />
+      <circle cx="36" cy="20" r="3" fill="#00e699" opacity="0.6" />
+      <path d="M36 20 L42 14" stroke="#00e699" strokeWidth="1.5" strokeLinecap="round" opacity="0.5" />
     </svg>
   );
 }
@@ -54,33 +54,33 @@ function IconCube() {
         </linearGradient>
       </defs>
       {/* Front face */}
-      <polygon points="24,6 42,16 42,32 24,42 6,32 6,16" stroke="url(#cub1)" strokeWidth="2" fill="none" opacity="0.85"/>
+      <polygon points="24,6 42,16 42,32 24,42 6,32 6,16" stroke="url(#cub1)" strokeWidth="2" fill="none" opacity="0.85" />
       {/* Inner lines */}
-      <line x1="24" y1="6"  x2="24" y2="42" stroke="url(#cub1)" strokeWidth="1.5" opacity="0.45"/>
-      <line x1="6"  y1="16" x2="42" y2="16" stroke="url(#cub1)" strokeWidth="1.5" opacity="0.45"/>
-      <line x1="6"  y1="32" x2="42" y2="32" stroke="url(#cub1)" strokeWidth="1.5" opacity="0.45"/>
+      <line x1="24" y1="6" x2="24" y2="42" stroke="url(#cub1)" strokeWidth="1.5" opacity="0.45" />
+      <line x1="6" y1="16" x2="42" y2="16" stroke="url(#cub1)" strokeWidth="1.5" opacity="0.45" />
+      <line x1="6" y1="32" x2="42" y2="32" stroke="url(#cub1)" strokeWidth="1.5" opacity="0.45" />
     </svg>
   );
 }
 
 const bottomCards = [
   {
-    Icon:  IconSignal,
+    Icon: IconSignal,
     title: "Smarter operations",
-    desc:  "Turn customer conversations into confirmed orders, appointments, and revenue — automatically, in real time.",
-    glow:  "rgba(79,142,247,0.18)",
+    desc: "Turn customer conversations into confirmed orders, appointments, and revenue — automatically, in real time.",
+    glow: "rgba(79,142,247,0.18)",
   },
   {
-    Icon:  IconPerson,
+    Icon: IconPerson,
     title: "Built around WhatsApp",
-    desc:  "No new app. No complicated setup. Just powerful automation through the platform your customers already use every day.",
-    glow:  "rgba(0,230,153,0.18)",
+    desc: "No new app. No complicated setup. Just powerful automation through the platform your customers already use every day.",
+    glow: "rgba(0,230,153,0.18)",
   },
   {
-    Icon:  IconCube,
+    Icon: IconCube,
     title: "End-to-end automation",
-    desc:  "From enquiries and order management to invoicing and analytics — everything works together in one seamless system.",
-    glow:  "rgba(99,102,241,0.18)",
+    desc: "From enquiries and order management to invoicing and analytics — everything works together in one seamless system.",
+    glow: "rgba(99,102,241,0.18)",
   },
 ];
 
@@ -119,7 +119,7 @@ export default function HeroSection() {
               transition={{ duration: 0.7, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
               className="text-slate-400 text-base sm:text-lg leading-relaxed max-w-[500px]"
             >
-              A WhatsApp-first automation system for restaurants, clinics, retailers, and modern businesses 
+              A WhatsApp-first automation system for restaurants, clinics, retailers, and modern businesses
               built to automate operations, capture orders, and scale customer experience 24/7.
             </motion.p>
 
@@ -172,25 +172,25 @@ export default function HeroSection() {
                       <stop offset="0%" stopColor="#7080a0" /><stop offset="100%" stopColor="#2a3050" />
                     </linearGradient>
                     <linearGradient id="d-inner-top" x1="90" y1="40" x2="190" y2="115" gradientUnits="userSpaceOnUse">
-                      <stop offset="0%" stopColor="#e0eaff" stopOpacity="0.9"/><stop offset="100%" stopColor="#6070a0" stopOpacity="0.6"/>
+                      <stop offset="0%" stopColor="#e0eaff" stopOpacity="0.9" /><stop offset="100%" stopColor="#6070a0" stopOpacity="0.6" />
                     </linearGradient>
                     <linearGradient id="d-inner-bot" x1="100" y1="115" x2="180" y2="240" gradientUnits="userSpaceOnUse">
-                      <stop offset="0%" stopColor="#4a5a80" stopOpacity="0.8"/><stop offset="100%" stopColor="#0a0f20" stopOpacity="0.9"/>
+                      <stop offset="0%" stopColor="#4a5a80" stopOpacity="0.8" /><stop offset="100%" stopColor="#0a0f20" stopOpacity="0.9" />
                     </linearGradient>
                     <radialGradient id="d-spec" cx="35%" cy="25%" r="35%">
-                      <stop offset="0%" stopColor="#ffffff" stopOpacity="0.7"/><stop offset="100%" stopColor="#ffffff" stopOpacity="0"/>
+                      <stop offset="0%" stopColor="#ffffff" stopOpacity="0.7" /><stop offset="100%" stopColor="#ffffff" stopOpacity="0" />
                     </radialGradient>
                   </defs>
-                  <polygon points="140,10  270,120  140,125  10,120"  fill="url(#d-top)" />
-                  <polygon points="10,120   140,125  140,290"          fill="url(#d-left)" />
-                  <polygon points="270,120  140,125  140,290"          fill="url(#d-right)" />
-                  <polygon points="140,40  220,112  140,120  60,112"   fill="url(#d-inner-top)" opacity="0.85" />
-                  <polygon points="60,112  140,120  140,250"           fill="url(#d-inner-bot)" opacity="0.7" />
-                  <polygon points="220,112 140,120  140,250"           fill="url(#d-inner-bot)" opacity="0.5" />
+                  <polygon points="140,10  270,120  140,125  10,120" fill="url(#d-top)" />
+                  <polygon points="10,120   140,125  140,290" fill="url(#d-left)" />
+                  <polygon points="270,120  140,125  140,290" fill="url(#d-right)" />
+                  <polygon points="140,40  220,112  140,120  60,112" fill="url(#d-inner-top)" opacity="0.85" />
+                  <polygon points="60,112  140,120  140,250" fill="url(#d-inner-bot)" opacity="0.7" />
+                  <polygon points="220,112 140,120  140,250" fill="url(#d-inner-bot)" opacity="0.5" />
                   <polyline points="140,10  270,120  140,125  10,120  140,10" stroke="rgba(180,200,255,0.25)" strokeWidth="0.8" fill="none" />
                   <line x1="140" y1="125" x2="140" y2="290" stroke="rgba(100,140,220,0.2)" strokeWidth="0.8" />
-                  <line x1="10"  y1="120" x2="140" y2="125" stroke="rgba(180,200,255,0.15)" strokeWidth="0.6"/>
-                  <line x1="270" y1="120" x2="140" y2="125" stroke="rgba(180,200,255,0.15)" strokeWidth="0.6"/>
+                  <line x1="10" y1="120" x2="140" y2="125" stroke="rgba(180,200,255,0.15)" strokeWidth="0.6" />
+                  <line x1="270" y1="120" x2="140" y2="125" stroke="rgba(180,200,255,0.15)" strokeWidth="0.6" />
                   <polygon points="140,10  200,90  140,95  80,90" fill="url(#d-spec)" />
                 </svg>
               </motion.div>
@@ -203,7 +203,7 @@ export default function HeroSection() {
           initial={{ opacity: 0.9, y: 50 }}
           animate={{ opacity: 0.8, y: 0 }}
           transition={{ duration: 0.8, delay: 0.45 }}
-          className="grid sm:grid-cols-3 gap-5 mt-10 lg:mt-6"
+          className="grid grid-cols-3 lg:gap-5 gap-2 mt-10 lg:mt-6"
           style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}
         >
           {bottomCards.map(({ Icon, title, desc, glow }, i) => (
@@ -212,17 +212,18 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.55 + i * 0.1 }}
-              className="relative flex flex-col gap-5 p-8 overflow-hidden group"
+              className="relative flex flex-col lg:gap-5 gap-2.5 lg:p-8 p-3 sm:p-5 overflow-hidden group lg:rounded-3xl rounded-md"
               style={{
                 background: "linear-gradient(135deg, rgba(8,16,40,0.85) 0%, rgba(4,10,28,0.9) 100%)",
                 borderRight: i < 2 ? "1px solid rgba(255,255,255,0.06)" : "none",
                 borderBottom: "1px solid rgba(255,255,255,0.06)",
+                border: "1px solid #1EC5E2",
               }}
             >
               {/* Subtle left-edge gradient accent */}
               <div
                 className="absolute left-0 top-0 bottom-0 w-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                style={{ background: `linear-gradient(to bottom, transparent, ${glow.replace("0.18","0.7")}, transparent)` }}
+                style={{ background: `linear-gradient(to bottom, transparent, ${glow.replace("0.18", "0.7")}, transparent)` }}
               />
 
               {/* Glow on hover */}
@@ -233,7 +234,7 @@ export default function HeroSection() {
 
               {/* Icon circle */}
               <div
-                className="relative w-14 h-14 rounded-full flex items-center justify-center flex-shrink-0"
+                className="relative lg:w-14 lg:h-14 w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center flex-shrink-0"
                 style={{
                   background: "radial-gradient(circle, rgba(30,50,100,0.8) 0%, rgba(10,20,50,0.9) 100%)",
                   border: "1px solid rgba(255,255,255,0.08)",
@@ -245,10 +246,10 @@ export default function HeroSection() {
 
               {/* Text */}
               <div className="relative flex flex-col gap-2">
-                <h3 className="font-syne font-bold text-white text-lg leading-snug">
+                <h3 className="font-syne font-bold text-white lg:text-lg sm:text-sm text-[10px] leading-snug">
                   {title}
                 </h3>
-                <p className="text-slate-500 text-sm leading-relaxed">
+                <p className="text-slate-500 text-sm leading-relaxed hidden sm:block">
                   {desc}
                 </p>
               </div>
@@ -258,16 +259,16 @@ export default function HeroSection() {
       </div>
 
       {/* Scroll pill — bottom right */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.1 }}
-        className="absolute bottom-6 right-6 w-10 h-10 rounded-full bg-[#00e699] flex items-center justify-center shadow-[0_0_20px_rgba(0,230,153,0.5)] cursor-pointer z-10"
-        onClick={() => window.scrollTo({ top: window.innerHeight, behavior: "smooth" })}
-        whileHover={{ scale: 1.1 }}
-      >
-        <ArrowUpRight className="w-4 h-4 text-[#02040a] rotate-[135deg]" />
-      </motion.div>
+        {/* <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.1 }}
+          className="absolute bottom-6 right-6 w-10 h-10 rounded-full bg-[#00e699] flex items-center justify-center shadow-[0_0_20px_rgba(0,230,153,0.5)] cursor-pointer z-10"
+          onClick={() => window.scrollTo({ top: window.innerHeight, behavior: "smooth" })}
+          whileHover={{ scale: 1.1 }}
+        >
+          <ArrowUpRight className="w-4 h-4 text-[#02040a] rotate-[135deg]" />
+        </motion.div> */}
     </section>
   );
 }
