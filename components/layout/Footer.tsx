@@ -5,8 +5,8 @@ import { ArrowRight, Twitter, Linkedin, Github, Instagram, Facebook } from "luci
 
 const cols = {
   Services: ["WhatsApp Automation", "Smart Order Management", "Automated Invoicing", "Broadcast Campaigns", "Analytics Dashboard"],
-  Company:  ["About Us", "Our Team", "Careers", "News & Blog", "Press Kit", "Partners"],
-  Resources:["Documentation", "API Reference", "Case Studies", "Whitepapers", "Community", "Status"],
+  Company:  ["About Us", "Service", "Contact"],
+  // Resources:["Documentation", "API Reference", "Case Studies", "Whitepapers", "Community", "Status"],
 };
 
 const socials = [
@@ -66,7 +66,7 @@ export default function Footer() {
         <div className="h-px bg-gradient-to-r from-transparent via-white/[0.07] to-transparent mb-16" />
 
         {/* Link grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-10 mb-16">
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-10 mb-16">
           {/* Brand column */}
           <div className="col-span-2 lg:col-span-2">
             <a href="#hero" className="flex items-center gap-2.5 mb-5">
