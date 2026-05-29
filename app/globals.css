@@ -35,14 +35,18 @@ html {
   scroll-behavior: auto; /* Lenis handles smooth scroll */
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  overflow-x: clip; /* clip not hidden — hidden breaks position:sticky */
 }
 
 body {
   background-color: var(--bg-base);
   color: var(--text-hi);
   font-family: "Bricolage Grotesque", sans-serif;
-  overflow-x: hidden;
+  overflow-x: clip; /* clip not hidden — hidden breaks position:sticky */
   line-height: 1.6;
+  /* Safe area support for mobile notch devices */
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -388,4 +392,16 @@ h1, h2, h3, h4, h5, h6 {
 @keyframes scanDown {
   0%   { top: -1px; }
   100% { top: 100%; }
+}
+
+/* ===========================
+   CUSTOM SPIN ANIMATIONS
+=========================== */
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+@keyframes spin-reverse {
+  from { transform: rotate(360deg); }
+  to   { transform: rotate(0deg); }
 }

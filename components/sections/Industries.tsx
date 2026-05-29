@@ -30,7 +30,7 @@ export default function Industries() {
             titleClassName="text-5xl lg:text-6xl"
           />
         </ScrollReveal>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-8 gap-4 ">
+        <div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-8 gap-4">
           {industries.map(({ icon: Icon, label, desc, color }, i) => (
             <motion.div
               key={label}
@@ -39,14 +39,14 @@ export default function Industries() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.07 }}
               whileHover={{ y: -5, borderColor: `${color}25` }}
-              className="glass p-6 flex flex-col gap-4 cursor-default transition-all duration-300 group"
+              className="glass p-4 lg:p-6 flex flex-col gap-3 cursor-default transition-all duration-300 group"
             >
-              <div className="w-16 h-16 rounded-2xl flex items-center justify-center transition-all duration-300 group-hover:scale-110"
+              <div className="w-12 h-12 lg:w-16 lg:h-16 rounded-2xl flex items-center justify-center transition-all duration-300 group-hover:scale-110"
                 style={{ background: `${color}10`, border: `1px solid ${color}20` }}>
-                <Icon className="w-6 h-6" style={{ color }} />
+                <Icon className="w-5 h-5 lg:w-6 lg:h-6" style={{ color }} />
               </div>
               <div>
-                <h3 className="font-syne font-bold text-white text-sm mb-1.5">{label}</h3>
+                <h3 className="font-syne font-bold text-white text-xs lg:text-sm mb-1.5">{label}</h3>
                 {/* <p className="text-slate-600 text-xs leading-relaxed">{desc}</p> */}
               </div>
               <div className="h-[2px] w-0 group-hover:w-8 rounded-full transition-all duration-400 mt-auto" style={{ background: color }} />

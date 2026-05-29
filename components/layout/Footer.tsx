@@ -117,13 +117,13 @@ export default function Footer() {
           <p className="text-slate-600 text-sm">
             © {new Date().getFullYear()} MagnumAI. All rights reserved.
           </p>
-          <div className="flex items-center gap-6">
+          {/* <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
             {["Privacy Policy", "Terms of Service", "Cookie Policy"].map((item) => (
-              <a key={item} href="#" className="text-slate-600 text-sm hover:text-slate-400 transition-colors">
+              <a key={item} href="#" className="text-slate-600 text-xs sm:text-sm hover:text-slate-400 transition-colors">
                 {item}
               </a>
             ))}
-          </div>
+          </div> */}
         </div>
       </div>
     </footer>

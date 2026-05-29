@@ -1,27 +1,42 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ArrowUpRight } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
 const navLinks = [
   { label: "Home", href: "/" },
   { label: "About Us", href: "/about" },
-  // { label: "Pages", href: "/services" },
   { label: "Services", href: "/services" },
-  // { label: "Blog", href: "/#news" },
   { label: "Contact Us", href: "/contact" },
 ];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 30);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => { document.body.style.overflow = ""; };
+  }, [mobileOpen]);
+
+  // Close mobile menu on route change
+  useEffect(() => {
+    setMobileOpen(false);
+  }, [pathname]);
 
   return (
     <>
@@ -68,15 +83,22 @@ export default function Navbar() {
 
           {/* ── Center nav pills ── */}
           <nav className="hidden lg:flex items-center gap-1 bg-[#0c1220]/70 border border-white/[0.07] rounded-full px-2 py-1.5">
-            {navLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                className="px-5 py-2 rounded-full text-sm font-medium text-slate-300 hover:text-white hover:bg-white/[0.07] transition-all duration-200 whitespace-nowrap"
-              >
-                {link.label}
-              </a>
-            ))}
+            {navLinks.map((link) => {
+              const isActive = pathname === link.href;
+              return (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 whitespace-nowrap ${
+                    isActive
+                      ? "text-white bg-white/[0.10]"
+                      : "text-slate-300 hover:text-white hover:bg-white/[0.07]"
+                  }`}
+                >
+                  {link.label}
+                </a>
+              );
+            })}
           </nav>
 
           {/* ── JOIN NOW ── */}
@@ -129,19 +151,26 @@ export default function Navbar() {
               className="fixed inset-y-0 right-0 z-40 w-72 bg-[#060a14]/95 backdrop-blur-2xl border-l border-white/[0.06] flex flex-col p-8 pt-24"
             >
               <nav className="flex flex-col gap-2">
-                {navLinks.map((link, i) => (
-                  <motion.a
-                    key={link.label}
-                    href={link.href}
-                    onClick={() => setMobileOpen(false)}
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: i * 0.06 + 0.08 }}
-                    className="py-3 px-4 rounded-xl text-slate-300 hover:text-white hover:bg-white/[0.05] font-medium transition-all"
-                  >
-                    {link.label}
-                  </motion.a>
-                ))}
+                {navLinks.map((link, i) => {
+                  const isActive = pathname === link.href;
+                  return (
+                    <motion.a
+                      key={link.label}
+                      href={link.href}
+                      onClick={() => setMobileOpen(false)}
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: i * 0.06 + 0.08 }}
+                      className={`py-3 px-4 rounded-xl font-medium transition-all ${
+                        isActive
+                          ? "text-white bg-white/[0.08] border border-white/[0.08]"
+                          : "text-slate-300 hover:text-white hover:bg-white/[0.05]"
+                      }`}
+                    >
+                      {link.label}
+                    </motion.a>
+                  );
+                })}
               </nav>
               <a
                 href="/contact"

@@ -22,7 +22,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-[#02040a] text-white overflow-x-hidden">
+      <body className="bg-[#02040a] text-white overflow-x-clip">
         <SmoothScroll>
           <MouseGlow />
           {children}

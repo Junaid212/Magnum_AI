@@ -69,7 +69,7 @@ export default function BentoGrid() {
             titleClassName="text-5xl lg:text-6xl"
           />
         </ScrollReveal>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 auto-rows-[190px]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:auto-rows-[190px]">
           {items.map((item, i) => {
             const Icon = item.icon;
             return (
@@ -79,7 +79,7 @@ export default function BentoGrid() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.55, delay: i * 0.08 }}
                 whileHover={{ y: -4 }}
-                className={`glass glass-hover relative overflow-hidden flex flex-col p-6 cursor-default ${item.span}`}
+                className={`glass glass-hover relative overflow-hidden flex flex-col p-6 cursor-default min-h-[190px] ${item.span}`}
                 style={{ borderColor: `${item.color}10` }}
               >
                 {/* Corner glow */}

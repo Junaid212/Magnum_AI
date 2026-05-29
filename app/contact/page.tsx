@@ -93,14 +93,14 @@ export default function ContactPage() {
             </ScrollReveal>
 
             <ScrollReveal delay={0.1}>
-              <h1 className="font-syne font-extrabold text-white text-5xl lg:text-7xl leading-[1.08] tracking-tight mb-6">
-                Let's construct the <br />
+              <h1 className="font-syne font-extrabold text-white text-4xl sm:text-5xl lg:text-7xl leading-[1.08] tracking-tight mb-6">
+                Let's construct the <br className="hidden sm:block" />
                 <span className="text-gradient">future on autopilot.</span>
               </h1>
             </ScrollReveal>
 
             <ScrollReveal delay={0.2}>
-              <p className="text-slate-400 text-lg lg:text-xl max-w-2xl leading-relaxed">
+              <p className="text-slate-400 text-base sm:text-lg lg:text-xl max-w-2xl leading-relaxed">
                 Connect directly with our solutions engineering team. We'll map your system architecture 
                 and construct a custom conversational path for your scale.
               </p>
@@ -166,7 +166,7 @@ export default function ContactPage() {
               </ScrollReveal>
 
               {/* FAQ Teaser Block */}
-              <ScrollReveal delay={0.25}>
+              {/* <ScrollReveal delay={0.25}>
                 <div className="glass p-6 bg-[#030712]/40 mt-4 border border-white/[0.05]">
                   <h4 className="font-syne font-bold text-white text-sm mb-2 flex items-center gap-2">
                     <HelpCircle className="w-4 h-4 text-[#00e699]" />
@@ -176,7 +176,7 @@ export default function ContactPage() {
                     Our solutions team answers most structural queries and custom RFPs in under 4 hours, and completes operational proposals in less than 24 hours.
                   </p>
                 </div>
-              </ScrollReveal>
+              </ScrollReveal> */}
             </div>
 
             {/* ── RIGHT COLUMN: DYNAMIC GLASS FORM ── */}

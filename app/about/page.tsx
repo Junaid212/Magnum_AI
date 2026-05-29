@@ -80,14 +80,14 @@ export default function AboutPage() {
             </ScrollReveal>
 
             <ScrollReveal delay={0.1}>
-              <h1 className="font-syne font-extrabold text-white text-5xl lg:text-7xl leading-[1.08] tracking-tight mb-8">
-                Pioneering operations on <br />
+              <h1 className="font-syne font-extrabold text-white text-4xl sm:text-5xl lg:text-7xl leading-[1.08] tracking-tight mb-8">
+                Pioneering operations on <br className="hidden sm:block" />
                 <span className="text-gradient">intelligent autopilot.</span>
               </h1>
             </ScrollReveal>
 
             <ScrollReveal delay={0.2}>
-              <p className="text-slate-400 text-lg lg:text-xl max-w-2xl leading-relaxed">
+              <p className="text-slate-400 text-base sm:text-lg lg:text-xl max-w-2xl leading-relaxed">
                 Magnum AI is a premier intelligence agency dedicated to building high-performance conversational architectures 
                 and WhatsApp-first automation ecosystems. We empower modern businesses to capture, service, and scale customer experiences effortlessly.
               </p>
@@ -100,7 +100,7 @@ export default function AboutPage() {
       <section className="relative py-16 border-y border-white/[0.06] bg-[#030712]/50">
         <div className="absolute inset-0 canvas-grid opacity-20" />
         <div className="relative container z-10">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8">
             {stats.map((stat, i) => (
               <motion.div
                 key={stat.label}
@@ -111,7 +111,7 @@ export default function AboutPage() {
                 className="text-center flex flex-col items-center"
               >
                 <div 
-                  className="font-syne font-black text-4xl lg:text-6xl mb-3 tracking-tight"
+                  className="font-syne font-black text-3xl sm:text-4xl lg:text-6xl mb-2 sm:mb-3 tracking-tight"
                   style={{ 
                     backgroundImage: `linear-gradient(135deg, ${stat.color} 0%, #fff 100%)`,
                     WebkitBackgroundClip: "text",

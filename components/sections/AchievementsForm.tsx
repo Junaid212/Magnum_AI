@@ -67,7 +67,7 @@ export default function AchievementsForm() {
               {stats.map(({ value, suffix, label }, i) => (
                 <motion.div key={label} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}
                   className="glass p-6 text-center glass-hover">
-                  <div className="font-syne font-black text-4xl lg:text-5xl text-gradient-green mb-2">
+                  <div className="font-syne font-black text-3xl sm:text-4xl lg:text-5xl text-gradient-green mb-2">
                     <AnimatedNumber target={value} suffix={suffix} />
                   </div>
                   <div className="text-slate-500 text-sm">{label}</div>

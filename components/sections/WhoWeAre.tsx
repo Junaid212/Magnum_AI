@@ -69,7 +69,7 @@ export default function WhoWeAre() {
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[400px] h-[200px] orb orb-green opacity-15 -translate-y-1/2" />
             <div className="relative">
               <div className="font-syne font-black text-8xl text-white/[0.03] absolute -top-6 left-1/2 -translate-x-1/2 select-none leading-none">&ldquo;</div>
-              <blockquote className="font-syne font-bold text-2xl sm:text-3xl text-white leading-snug max-w-3xl mx-auto">
+              <blockquote className="font-syne font-bold text-xl sm:text-2xl sm:text-3xl text-white leading-snug max-w-3xl mx-auto">
                 We help businesses automate operations, capture more customers, {" "}
                 <span className="text-gradient">and scale through intelligent WhatsApp-first systems.</span>
               </blockquote>

@@ -76,14 +76,14 @@ export default function ServicesPage() {
             </ScrollReveal>
 
             <ScrollReveal delay={0.1}>
-              <h1 className="font-syne font-extrabold text-white text-5xl lg:text-7xl leading-[1.08] tracking-tight mb-8">
-                Enterprise AI automation, <br />
+              <h1 className="font-syne font-extrabold text-white text-4xl sm:text-5xl lg:text-7xl leading-[1.08] tracking-tight mb-8">
+                Enterprise AI automation, <br className="hidden sm:block" />
                 <span className="text-gradient">engineered to scale.</span>
               </h1>
             </ScrollReveal>
 
             <ScrollReveal delay={0.2}>
-              <p className="text-slate-400 text-lg lg:text-xl max-w-2xl leading-relaxed">
+              <p className="text-slate-400 text-base sm:text-lg lg:text-xl max-w-2xl leading-relaxed">
                 We design and integrate smart conversational platforms that replace manual data entry, 
                 streamline booking flows, and instantly capture every incoming lead.
               </p>
@@ -396,7 +396,7 @@ export default function ServicesPage() {
             />
           </ScrollReveal>
 
-          <div className="relative flex flex-col gap-6 md:gap-0 md:grid md:grid-cols-5 gap-y-12">
+          <div className="relative flex flex-col gap-6 md:gap-0 md:grid md:grid-cols-5">
             {/* Timeline connector line (hidden on mobile) */}
             <div className="hidden md:block absolute top-[44px] left-8 right-8 h-px bg-gradient-to-r from-[#00e699]/30 via-[#00f0ff]/30 to-[#8b5cf6]/10" />
 
@@ -407,8 +407,12 @@ export default function ServicesPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: i * 0.1 }}
-                className="relative flex flex-col items-start md:items-center text-left md:text-center px-4"
+                className="relative flex flex-col md:items-center text-left md:text-center px-4"
               >
+                {/* Mobile connector line */}
+                {i < steps.length - 1 && (
+                  <div className="md:hidden absolute left-8 top-16 bottom-0 w-px bg-gradient-to-b from-[#00e699]/30 to-transparent" />
+                )}
                 {/* Bullet badge */}
                 <div className="w-16 h-16 rounded-full bg-[#0a0f1e] border border-white/[0.08] flex items-center justify-center mb-6 relative z-10 shadow-lg group hover:border-[#00e699] transition-colors">
                   <Icon className="w-6 h-6 text-[#00e699]" />
