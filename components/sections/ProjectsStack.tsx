@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
+import Link from "next/link";
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion";
 import { ArrowUpRight, ChevronUp, ChevronDown } from "lucide-react";
 import SectionHeader from "../ui/SectionHeader";
@@ -254,21 +255,25 @@ export default function ProjectsStack() {
                         </span>
                       </div>
 
-                      <motion.a
-                        href="/contact"
+                      <motion.div
                         whileHover={{ scale: 1.03 }}
                         whileTap={{ scale: 0.98 }}
-                        className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full font-syne font-extrabold text-[10px] sm:text-xs text-[#02040a] tracking-wider uppercase cursor-pointer w-full md:w-auto justify-center"
-                        style={{
-                          background: `linear-gradient(135deg, ${project.accent} 0%, #fff 100%)`,
-                          boxShadow: `0 0 25px ${project.accent}20`,
-                        }}
+                        className="w-full md:w-auto"
                       >
-                        <span>View Case Study</span>
-                        <div className="w-4 h-4 rounded-full bg-[#02040a] flex items-center justify-center flex-shrink-0">
-                          <ArrowUpRight className="w-3 h-3 text-white" />
-                        </div>
-                      </motion.a>
+                        <Link
+                          href="/contact"
+                          className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full font-syne font-extrabold text-[10px] sm:text-xs text-[#02040a] tracking-wider uppercase cursor-pointer w-full md:w-auto justify-center"
+                          style={{
+                            background: `linear-gradient(135deg, ${project.accent} 0%, #fff 100%)`,
+                            boxShadow: `0 0 25px ${project.accent}20`,
+                          }}
+                        >
+                          <span>View Case Study</span>
+                          <div className="w-4 h-4 rounded-full bg-[#02040a] flex items-center justify-center flex-shrink-0">
+                            <ArrowUpRight className="w-3 h-3 text-white" />
+                          </div>
+                        </Link>
+                      </motion.div>
                     </div>
                   </div>
                 </motion.div>

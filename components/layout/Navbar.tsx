@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
@@ -59,7 +60,7 @@ export default function Navbar() {
         <div className="max-w-[90vw] mx-auto px-6 flex items-center justify-between h-[68px]">
 
           {/* ── Logo ── */}
-          <a href="/" className="flex items-center gap-2.5 flex-shrink-0">
+          <Link href="/" className="flex items-center gap-2.5 flex-shrink-0">
             {/* Geometric Aivora logo mark */}
             <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
               <path d="M16 2L4 9v14l12 7 12-7V9L16 2z" fill="url(#lg1)" />
@@ -79,14 +80,14 @@ export default function Navbar() {
             <span className="font-syne font-extrabold text-[22px] tracking-tight text-white">
               Magnum AI
             </span>
-          </a>
+          </Link>
 
           {/* ── Center nav pills ── */}
           <nav className="hidden lg:flex items-center gap-1 bg-[#0c1220]/70 border border-white/[0.07] rounded-full px-2 py-1.5">
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
               return (
-                <a
+                <Link
                   key={link.label}
                   href={link.href}
                   className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 whitespace-nowrap ${
@@ -96,19 +97,19 @@ export default function Navbar() {
                   }`}
                 >
                   {link.label}
-                </a>
+                </Link>
               );
             })}
           </nav>
 
           {/* ── JOIN NOW ── */}
           <div className="hidden lg:block">
-            <a
+            <Link
               href="/contact"
               className="inline-flex items-center gap-1 bg-[#00e699] text-[#02040a] font-syne font-extrabold text-sm px-7 py-2.5 rounded-full transition-all duration-300 hover:shadow-[0_0_35px_rgba(0,230,153,0.55)] hover:scale-[1.03]"
             >
               JOIN NOW
-            </a>
+            </Link>
           </div>
 
           {/* ── Mobile hamburger ── */}
@@ -154,31 +155,34 @@ export default function Navbar() {
                 {navLinks.map((link, i) => {
                   const isActive = pathname === link.href;
                   return (
-                    <motion.a
+                    <motion.div
                       key={link.label}
-                      href={link.href}
-                      onClick={() => setMobileOpen(false)}
                       initial={{ opacity: 0, x: 20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: i * 0.06 + 0.08 }}
-                      className={`py-3 px-4 rounded-xl font-medium transition-all ${
-                        isActive
-                          ? "text-white bg-white/[0.08] border border-white/[0.08]"
-                          : "text-slate-300 hover:text-white hover:bg-white/[0.05]"
-                      }`}
                     >
-                      {link.label}
-                    </motion.a>
+                      <Link
+                        href={link.href}
+                        onClick={() => setMobileOpen(false)}
+                        className={`block py-3 px-4 rounded-xl font-medium transition-all ${
+                          isActive
+                            ? "text-white bg-white/[0.08] border border-white/[0.08]"
+                            : "text-slate-300 hover:text-white hover:bg-white/[0.05]"
+                        }`}
+                      >
+                        {link.label}
+                      </Link>
+                    </motion.div>
                   );
                 })}
               </nav>
-              <a
+              <Link
                 href="/contact"
                 onClick={() => setMobileOpen(false)}
-                className="mt-8 bg-[#00e699] text-[#02040a] font-syne font-extrabold text-sm py-3.5 rounded-full text-center"
+                className="mt-8 bg-[#00e699] text-[#02040a] font-syne font-extrabold text-sm py-3.5 rounded-full text-center block"
               >
                 JOIN NOW
-              </a>
+              </Link>
             </motion.div>
           </>
         )}
