@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { ArrowRight, Twitter, Linkedin, Github, Instagram, Facebook } from "lucide-react";
 
 const cols = {
@@ -70,12 +71,13 @@ export default function Footer() {
           {/* Brand column */}
           <div className="col-span-2 lg:col-span-2">
             <a href="#hero" className="flex items-center gap-2.5 mb-5">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#00e699] to-[#00c97a] flex items-center justify-center shadow-[0_0_16px_rgba(0,230,153,0.4)]">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
-                  <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="#02040a" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </div>
-              <span className="font-syne font-bold text-lg text-white">Magnum<span className="text-[#00e699]">AI</span></span>
+              <Image
+                src="/images/mag-logo.png"
+                alt="Magnum AI"
+                width={140}
+                height={40}
+                className="object-contain"
+              />
             </a>
             <p className="text-slate-500 text-sm leading-relaxed mb-6 max-w-xs">
               The leading AI agency helping ambitious businesses unlock transformative growth through intelligent automation.

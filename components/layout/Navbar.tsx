@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import Image from "next/image";
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -62,21 +63,16 @@ export default function Navbar() {
           {/* ── Logo ── */}
           <Link href="/" className="flex items-center gap-2.5 flex-shrink-0">
             {/* Geometric Aivora logo mark */}
-            <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
-              <path d="M16 2L4 9v14l12 7 12-7V9L16 2z" fill="url(#lg1)" />
-              <path d="M16 2L4 9v14l12 7 12-7V9L16 2z" stroke="rgba(0,230,153,0.4)" strokeWidth="0.5" />
-              <path d="M16 8l-7 4v8l7 4 7-4v-8l-7-4z" fill="url(#lg2)" opacity="0.6" />
-              <defs>
-                <linearGradient id="lg1" x1="4" y1="2" x2="28" y2="30" gradientUnits="userSpaceOnUse">
-                  <stop offset="0%" stopColor="#00e699" />
-                  <stop offset="100%" stopColor="#00a8ff" />
-                </linearGradient>
-                <linearGradient id="lg2" x1="9" y1="8" x2="23" y2="24" gradientUnits="userSpaceOnUse">
-                  <stop offset="0%" stopColor="#fff" stopOpacity="0.6" />
-                  <stop offset="100%" stopColor="#fff" stopOpacity="0.1" />
-                </linearGradient>
-              </defs>
-            </svg>
+            <Link href="/" className="flex items-center flex-shrink-0">
+            <Image
+              src="/images/logo-mag.png"
+              alt="Magnum AI"
+              width={40}
+              height={40}
+              className="object-contain"
+              priority
+            />
+          </Link>
             <span className="font-syne font-extrabold text-[22px] tracking-tight text-white">
               Magnum AI
             </span>
@@ -106,7 +102,7 @@ export default function Navbar() {
           <div className="hidden lg:block">
             <Link
               href="/contact"
-              className="inline-flex items-center gap-1 bg-[#00e699] text-[#02040a] font-syne font-extrabold text-sm px-7 py-2.5 rounded-full transition-all duration-300 hover:shadow-[0_0_35px_rgba(0,230,153,0.55)] hover:scale-[1.03]"
+              className="inline-flex items-center gap-1 bg-[#6BA0EC] text-[#02040a] font-syne font-extrabold text-sm px-7 py-2.5 rounded-full transition-all duration-300 hover:shadow-[0_0_35px_rgba(0,230,153,0.55)] hover:scale-[1.03]"
             >
               JOIN NOW
             </Link>
@@ -179,7 +175,7 @@ export default function Navbar() {
               <Link
                 href="/contact"
                 onClick={() => setMobileOpen(false)}
-                className="mt-8 bg-[#00e699] text-[#02040a] font-syne font-extrabold text-sm py-3.5 rounded-full text-center block"
+                className="mt-8 bg-[#6BA0EC] text-[#02040a] font-syne font-extrabold text-sm py-3.5 rounded-full text-center block"
               >
                 JOIN NOW
               </Link>

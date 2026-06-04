@@ -5,6 +5,7 @@ import Footer from "@/components/layout/Footer";
 
 // Sections
 import HeroSection     from "@/components/sections/HeroSection";
+import HeroSection2    from "@/components/sections/HeroSection2";
 import LogoMarquee     from "@/components/sections/LogoMarquee";
 import WhoWeAre        from "@/components/sections/WhoWeAre";
 import ServicesAccordion from "@/components/sections/ServicesAccordion";
@@ -24,10 +25,13 @@ export default function Home() {
     <main className="relative bg-[#02040a]">
       <Navbar />
       <HeroSection />
+     
       {/* <LogoMarquee /> */}
-      <WhoWeAre />
-      <ServicesAccordion />
+      <WhoWeAre />  
       <WhyChooseUs />
+       {/* <HeroSection2 /> */}
+      <ServicesAccordion />
+      {/* <WhyChooseUs /> */}
       {/* <AIDashboard /> */}
       {/* <BentoGrid /> */}
       <ProjectsStack />
