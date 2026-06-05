@@ -176,7 +176,7 @@ export default function WhoWeAre() {
       id="about"
       ref={sectionRef}
       className="relative overflow-hidden"
-      style={{ background: "#f4f6fb" }}
+      style={{ backgroundImage: "url('/images/114.webp')", backgroundSize: "cover", backgroundPosition: "center", backgroundRepeat: "no-repeat" }}
     >
       {/* Subtle top-edge shadow from previous dark section */}
       <div

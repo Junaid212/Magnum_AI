@@ -97,7 +97,7 @@ const cardVariants = {
 
 export default function Industries() {
   return (
-    <section className="relative overflow-hidden" style={{ padding: "100px 0", background: "#f8fafc" }}>
+    <section className="relative overflow-hidden" style={{ padding: "100px 0", backgroundImage: "url(/images/114.webp)" }}>
       {/* Subtle pattern overlay */}
       <div
         className="absolute inset-0 pointer-events-none"
@@ -151,7 +151,7 @@ export default function Industries() {
             style={{
               background: "rgba(0,230,153,0.1)",
               border: "1px solid rgba(0,230,153,0.25)",
-              color: "#00b377",
+              color: "#082383",
             }}
           >
             <span
@@ -178,7 +178,7 @@ export default function Industries() {
             Built for businesses{" "}
             <span
               style={{
-                background: "linear-gradient(135deg, #00e699 0%, #00b0ff 60%, #3b6cf4 100%)",
+                background: "linear-gradient(135deg, #003ae6ff 0%, #00b0ff 60%, #3b6cf4 100%)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
@@ -211,7 +211,7 @@ export default function Industries() {
               whileHover={{ y: -6, transition: { duration: 0.3, ease: [0.22, 1, 0.36, 1] } }}
               className="group relative rounded-2xl p-6 cursor-default"
               style={{
-                background: "#ffffff",
+                background: "#f2f2f25b",
                 border: "1px solid #e2e8f0",
                 boxShadow: "0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04)",
                 transition: "box-shadow 0.3s ease, border-color 0.3s ease",

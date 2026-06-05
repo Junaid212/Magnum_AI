@@ -65,20 +65,20 @@ export default function ServicesAccordion() {
   const active = services.find((s) => s.id === activeId)!;
 
   return (
-    <section id="services" className="relative section-pad overflow-hidden">
+    <section id="services" className="relative section-pad overflow-hidden" style={{ backgroundImage: "url(/images/114.webp)" }}>
       <div className="absolute right-0 top-1/4 w-[600px] h-[600px] orb orb-green opacity-08" />
       <div className="relative container">
         <ScrollReveal className="mb-16">
           <SectionHeader
             badge="Our Services"
             title={<>What We <span className="text-gradient">Deliver</span></>}
-            subtitle="Five core AI capabilities engineered to transform how your business operates, competes, and grows."
+            // subtitle="Five core AI capabilities engineered to transform how your business operates, competes, and grows."
             titleClassName="text-5xl lg:text-6xl"
           />
         </ScrollReveal>
 
         {/* ── DESKTOP LAYOUT (Horizontal Accordion) ── */}
-        <div className="hidden md:flex h-[520px] gap-0 overflow-hidden rounded-3xl border border-white/[0.06]" style={{ background: "#060a14" }}>
+        <div className="hidden md:flex h-[520px] gap-0 overflow-hidden rounded-3xl border border-white/[0.06]" style={{ background: "#0a1b47d5" }}>
           {services.map((svc) => {
             const Icon = svc.icon;
             const isActive = svc.id === activeId;
@@ -164,7 +164,7 @@ export default function ServicesAccordion() {
                         </p>
 
                         {/* Image placed below description */}
-                        <div className="relative w-full h-[220px] overflow-hidden rounded-2xl border border-white/[0.08] bg-[#040814] shadow-inner group">
+                        <div className="relative w-full h-[280px] overflow-hidden rounded-2xl border border-white/[0.08] bg-[#040814] shadow-inner group">
                           <img 
                             src={active.image} 
                             alt={active.title} 

@@ -76,7 +76,7 @@ h1, h2, h3, h4, h5, h6 {
    GLASSMORPHISM CARDS
 =========================== */
 .glass {
-  background: linear-gradient(135deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.02) 100%);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.232) 0%, rgba(255, 255, 255, 0.062) 100%);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(255,255,255,0.07);

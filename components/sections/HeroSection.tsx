@@ -306,8 +306,8 @@ export default function HeroSection() {
       <div className="absolute inset-0 bg-gradient-to-b from-[#02040a]/80 via-transparent to-[#02040a] pointer-events-none" />
 
       {/* ── Main content ── */}
-      <div className="relative flex-1 max-w-[90vw] mx-auto w-full px-6 flex flex-col justify-center pt-44 pb-0">
-        <div className="grid lg:grid-cols-[1fr_620px] gap-8 items-center min-h-[calc(100vh-96px-280px)]">
+      <div className="relative flex-1 max-w-[95vw] mx-auto w-full px-4 sm:px-6 flex flex-col justify-center pt-44 pb-0">
+        <div className="grid lg:grid-cols-[1fr_620px] gap-8 lg:gap-8 items-center min-h-[calc(100vh-96px-280px)]">
 
           {/* ── LEFT COPY ── */}
           <div className="flex flex-col gap-7">
@@ -405,7 +405,7 @@ export default function HeroSection() {
               </motion.div>
             </div>
           </motion.div> */}
-          <div className="flex-1 relative flex items-center justify-center" style={{ minHeight: "500px" }}>
+          <div className="flex-1 relative flex items-center justify-center py-10 lg:py-0" style={{ minHeight: "500px" }}>
                     {/* Sphere */}
                     <motion.div
                       initial={{ opacity: 0, scale: 0.85 }}
@@ -413,7 +413,7 @@ export default function HeroSection() {
                       viewport={{ once: true }}
                       transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
                       className="relative"
-                      style={{ width: "clamp(260px, 32vw, 440px)", height: "clamp(260px, 32vw, 440px)" }}
+                      style={{ width: "clamp(320px, 32vw, 440px)", height: "clamp(320px, 32vw, 440px)" }}
                     >
                       {/* Soft halo behind sphere */}
                       <div
@@ -445,7 +445,7 @@ export default function HeroSection() {
                           className="absolute flex flex-col gap-2 p-3 rounded-2xl"
                           style={{
                             ...position,
-                            width: "clamp(155px, 16vw, 210px)",
+                            width: "clamp(140px, 22vw, 210px)",
                             background: "rgba(10, 25, 90, 0.55)",
                             backdropFilter: "blur(12px)",
                             WebkitBackdropFilter: "blur(12px)",

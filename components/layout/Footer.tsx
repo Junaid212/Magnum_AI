@@ -25,7 +25,7 @@ export default function Footer() {
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden">
         <span
           aria-hidden="true"
-          className="font-syne font-black text-white/[0.018] whitespace-nowrap"
+          className="font-syne font-black text-white/[0.03] whitespace-nowrap"
           style={{ fontSize: "clamp(80px, 15vw, 220px)", letterSpacing: "-0.04em" }}
         >
           MAGNUM AI

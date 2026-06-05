@@ -19,13 +19,13 @@ const pillars = [
     icon: Target, 
     title: "WhatsApp-first automation", 
     desc: "Built around the platform your customers already trust and use daily.", 
-    color: "#00e699" 
+    color: "#003ae6ff" 
   },
   { 
     icon: Lightbulb, 
     title: "Tailored for your business", 
     desc: "Every workflow, menu, and automation system is customized to fit your operations.", 
-    color: "#00f0ff" 
+    color: "#cc00ffff" 
   },
   { 
     icon: Rocket, 
@@ -201,14 +201,14 @@ export default function AboutPage() {
       </section>
 
       {/* ── CORE PILLARS SECTION ── */}
-      <section className="relative section-pad bg-[#030712]/30 border-t border-white/[0.04]">
+      <section className="relative section-pad  border-t border-white/[0.04]"style={{backgroundImage: 'url(/images/114.webp)'}}>
         <div className="absolute inset-0 canvas-grid opacity-30" />
         <div className="absolute right-1/4 bottom-0 w-[500px] h-[500px] orb orb-indigo opacity-08" />
 
         <div className="relative container z-10">
           <ScrollReveal className="mb-16">
             <SectionHeader
-              badge="Why Magnum AI"
+              badge="Why Magnum AI" 
               title={<>Why businesses choose  <span className="text-gradient">MagnumAI.</span></>}
               // subtitle="Cohesive processes, reliable architecture, and client integration shape every single deployment."
             />
