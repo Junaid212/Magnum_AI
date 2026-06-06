@@ -211,6 +211,7 @@ const featureCards = [
     title: "Built around WhatsApp",
     desc: "No new app. No complicated setup. Just powerful automation through the platform your customers already use every day.",
     position: { top: "4%", right: "0%" },
+    mobilePosition: { top: "2%", right: "-2%" },
   },
   {
     id: "smarter",
@@ -218,6 +219,7 @@ const featureCards = [
     title: "Smarter operations",
     desc: "Turn customer conversations into confirmed orders, appointments, and revenue — automatically, in real time.",
     position: { top: "38%", left: "0%" },
+    mobilePosition: { top: "40%", left: "-2%" },
   },
   {
     id: "automation",
@@ -225,6 +227,7 @@ const featureCards = [
     title: "End-to-end automation",
     desc: "From enquiries and order management to invoicing and analytics — everything works together in one seamless system.",
     position: { bottom: "4%", right: "0%" },
+    mobilePosition: { bottom: "2%", right: "-2%" },
   },
 ];
 /* ─── WhatsApp icon ─── */
@@ -406,77 +409,99 @@ export default function HeroSection() {
             </div>
           </motion.div> */}
           <div className="flex-1 relative flex items-center justify-center py-10 lg:py-0" style={{ minHeight: "500px" }}>
-                    {/* Sphere */}
-                    <motion.div
-                      initial={{ opacity: 0, scale: 0.85 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
-                      className="relative"
-                      style={{ width: "clamp(320px, 32vw, 440px)", height: "clamp(320px, 32vw, 440px)" }}
+            {/* Sphere */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.85 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
+              className="relative"
+              style={{ width: "clamp(320px, 32vw, 440px)", height: "clamp(320px, 32vw, 440px)" }}
+            >
+              {/* Soft halo behind sphere */}
+              <div
+                className="absolute inset-0 rounded-full"
+                style={{
+                  background: "radial-gradient(circle, rgba(80,140,255,0.3) 0%, transparent 65%)",
+                  filter: "blur(40px)",
+                  transform: "scale(1.3)",
+                }}
+              />
+
+              {/* Animated floating sphere */}
+              <motion.div
+                animate={{ y: [0, -16, 0] }}
+                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                className="w-full h-full"
+              >
+                <Sphere3D />
+              </motion.div>
+
+              {/* ── Desktop floating cards ── */}
+              {featureCards.map(({ id, Icon, title, desc, position }, i) => (
+                <motion.div
+                  key={`desk-${id}`}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.7, delay: 0.3 + i * 0.18, ease: [0.22, 1, 0.36, 1] }}
+                  className="absolute hidden sm:flex flex-col gap-2 p-3 rounded-2xl"
+                  style={{
+                    ...position,
+                    width: "clamp(140px, 22vw, 210px)",
+                    background: "rgba(10, 25, 90, 0.55)",
+                    backdropFilter: "blur(12px)",
+                    WebkitBackdropFilter: "blur(12px)",
+                    border: "1px solid rgba(120,180,255,0.2)",
+                    boxShadow: "0 4px 32px rgba(0,20,80,0.35), inset 0 1px 0 rgba(255,255,255,0.08)",
+                  }}
+                >
+                  <div className="flex items-center justify-start">
+                    <div
+                      className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0"
+                      style={{ background: "rgba(255,255,255,0.1)", border: "1px solid rgba(255,255,255,0.15)" }}
                     >
-                      {/* Soft halo behind sphere */}
-                      <div
-                        className="absolute inset-0 rounded-full"
-                        style={{
-                          background: "radial-gradient(circle, rgba(80,140,255,0.3) 0%, transparent 65%)",
-                          filter: "blur(40px)",
-                          transform: "scale(1.3)",
-                        }}
-                      />
-          
-                      {/* Animated floating sphere */}
-                      <motion.div
-                        animate={{ y: [0, -16, 0] }}
-                        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                        className="w-full h-full"
-                      >
-                        <Sphere3D />
-                      </motion.div>
-          
-                      {/* ── Floating Feature Cards (absolute) ── */}
-                      {featureCards.map(({ id, Icon, title, desc, position }, i) => (
-                        <motion.div
-                          key={id}
-                          initial={{ opacity: 0, scale: 0.8 }}
-                          whileInView={{ opacity: 1, scale: 1 }}
-                          viewport={{ once: true }}
-                          transition={{ duration: 0.7, delay: 0.3 + i * 0.18, ease: [0.22, 1, 0.36, 1] }}
-                          className="absolute flex flex-col gap-2 p-3 rounded-2xl"
-                          style={{
-                            ...position,
-                            width: "clamp(140px, 22vw, 210px)",
-                            background: "rgba(10, 25, 90, 0.55)",
-                            backdropFilter: "blur(12px)",
-                            WebkitBackdropFilter: "blur(12px)",
-                            border: "1px solid rgba(120,180,255,0.2)",
-                            boxShadow: "0 4px 32px rgba(0,20,80,0.35), inset 0 1px 0 rgba(255,255,255,0.08)",
-                          }}
-                        >
-                          {/* Icon */}
-                          <div className="flex items-center justify-start">
-                            <div
-                              className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0"
-                              style={{
-                                background: "rgba(255,255,255,0.1)",
-                                border: "1px solid rgba(255,255,255,0.15)",
-                              }}
-                            >
-                              <Icon />
-                            </div>
-                          </div>
-                          {/* Title */}
-                          <p className="font-syne font-bold text-white text-xs leading-tight">
-                            {title}
-                          </p>
-                          {/* Description */}
-                          <p className="text-blue-200 leading-snug opacity-80" style={{ fontSize: "10px" }}>
-                            {desc}
-                          </p>
-                        </motion.div>
-                      ))}
-                    </motion.div>
+                      <Icon />
+                    </div>
                   </div>
+                  <p className="font-syne font-bold text-white text-xs leading-tight">{title}</p>
+                  <p className="text-blue-200 leading-snug opacity-80" style={{ fontSize: "10px" }}>{desc}</p>
+                </motion.div>
+              ))}
+
+              {/* ── Mobile floating cards (different positions) ── */}
+              {featureCards.map(({ id, Icon, title, desc, mobilePosition }, i) => (
+                <motion.div
+                  key={`mob-${id}`}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.7, delay: 0.3 + i * 0.18, ease: [0.22, 1, 0.36, 1] }}
+                  className="absolute flex sm:hidden flex-col gap-1.5 p-2.5 rounded-xl"
+                  style={{
+                    ...mobilePosition,
+                    width: "clamp(120px, 44vw, 160px)",
+                    background: "rgba(10, 25, 90, 0.72)",
+                    backdropFilter: "blur(12px)",
+                    WebkitBackdropFilter: "blur(12px)",
+                    border: "1px solid rgba(120,180,255,0.22)",
+                    boxShadow: "0 4px 24px rgba(0,20,80,0.4), inset 0 1px 0 rgba(255,255,255,0.08)",
+                  }}
+                >
+                  <div className="flex items-center justify-start">
+                    <div
+                      className="w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0"
+                      style={{ background: "rgba(255,255,255,0.1)", border: "1px solid rgba(255,255,255,0.15)" }}
+                    >
+                      <Icon />
+                    </div>
+                  </div>
+                  <p className="font-syne font-bold text-white leading-tight" style={{ fontSize: "9px" }}>{title}</p>
+                  <p className="text-blue-200 leading-snug opacity-80" style={{ fontSize: "8px" }}>{desc}</p>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
         </div>
 
         {/* ────────── Bottom Feature Cards ────────── */}

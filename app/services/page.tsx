@@ -70,7 +70,7 @@ export default function ServicesPage() {
           <div className="max-w-4xl mx-auto text-center flex flex-col items-center">
             <ScrollReveal>
               <span className="badge mb-6">
-                <span className="badge-dot" />
+                <span className="badge-dot  " />
                 WHAT WE DO
               </span>
             </ScrollReveal>
@@ -93,16 +93,16 @@ export default function ServicesPage() {
       </section>
 
       {/* ── SERVICES GRID ── */}
-      <section className="relative section-pad overflow-hidden">
+      <section className="relative section-pad overflow-hidden" style={{backgroundImage:'url(/images/114.webp)'}}>
         <div className="absolute inset-0 canvas-grid opacity-30" />
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] orb orb-green opacity-08" />
 
         <div className="relative container z-10">
           <ScrollReveal className="mb-20">
             <SectionHeader
-              badge="Core Capabilities"
+              badge={<span className="badge-new">Core Capabilities</span>}
               title={<>Smarter systems, <span className="text-gradient">unmatched results.</span></>}
-              subtitle="From lightweight conversational menus to heavy enterprise databases, we engineer complete infrastructure."
+              // subtitle="From lightweight conversational menus to heavy enterprise databases, we engineer complete infrastructure."
             />
           </ScrollReveal>
 
@@ -113,7 +113,7 @@ export default function ServicesPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="glass p-8 flex flex-col justify-between relative group overflow-hidden rounded-3xl border border-white/[0.05] hover:border-[#00e699]/30 transition-all duration-300 md:col-span-2 min-h-[380px]"
+              className="glass-new1 p-8 flex flex-col justify-between relative group overflow-hidden rounded-3xl border border-white/[0.05] hover:border-[#00e699]/30 transition-all duration-300 md:col-span-2 min-h-[380px]"
             >
               <div className="absolute left-0 top-0 bottom-0 w-[3px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-b from-[#00e699] to-transparent" />
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none bg-[radial-gradient(circle_at_10%_10%,#00e69908_0%,transparent_60%)]" />
@@ -125,7 +125,7 @@ export default function ServicesPage() {
                       <MessageSquare className="w-6 h-6 text-[#00e699]" />
                     </div>
                     <h3 className="font-syne font-extrabold text-white text-2xl lg:text-3xl mb-4">WhatsApp Automation</h3>
-                    <p className="text-slate-400 text-sm lg:text-base leading-relaxed">
+                    <p className="text-slate-600 text-sm lg:text-base leading-relaxed">
                       Automate customer conversations, order taking, enquiries, confirmations, and support directly on WhatsApp, 24/7.
                     </p>
                   </div>
@@ -133,7 +133,7 @@ export default function ServicesPage() {
                     <span className="text-[10px] font-syne font-bold uppercase tracking-wider text-[#00e699] bg-[#00e699]/08 px-3 py-1.5 rounded-full border border-[#00e699]/15">
                       24/7 Response
                     </span>
-                    <span className="text-[10px] font-syne font-bold uppercase tracking-wider text-slate-400 bg-white/[0.03] px-3 py-1.5 rounded-full border border-white/[0.05]">
+                    <span className="text-[10px] font-syne font-bold uppercase tracking-wider text-slate-600 bg-white/[0.03] px-3 py-1.5 rounded-full border border-white/[0.05]">
                       Smart Order Flow
                     </span>
                   </div>
@@ -171,7 +171,7 @@ export default function ServicesPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="glass p-8 flex flex-col justify-between relative group overflow-hidden rounded-3xl border border-white/[0.05] hover:border-[#00f0ff]/30 transition-all duration-300 md:col-span-1 min-h-[380px]"
+              className="glass-new1 p-8 flex flex-col justify-between relative group overflow-hidden rounded-3xl border border-white/[0.05] hover:border-[#00f0ff]/30 transition-all duration-300 md:col-span-1 min-h-[380px]"
             >
               <div className="absolute left-0 top-0 bottom-0 w-[3px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-b from-[#00f0ff] to-transparent" />
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none bg-[radial-gradient(circle_at_10%_10%,#00f0ff08_0%,transparent_60%)]" />
@@ -181,7 +181,7 @@ export default function ServicesPage() {
                   <Cpu className="w-6 h-6 text-[#00f0ff]" />
                 </div>
                 <h3 className="font-syne font-extrabold text-white text-2xl mb-3">Smart Order Management</h3>
-                <p className="text-slate-400 text-sm leading-relaxed mb-6">
+                <p className="text-slate-600 text-sm leading-relaxed mb-6">
                   Manage WhatsApp, walk-in, and manual orders in one live dashboard built for operational speed.
                 </p>
               </div>
@@ -225,7 +225,7 @@ export default function ServicesPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="glass p-8 flex flex-col justify-between relative group overflow-hidden rounded-3xl border border-white/[0.05] hover:border-[#8b5cf6]/30 transition-all duration-300 md:col-span-1 min-h-[380px]"
+              className="glass-new1 p-8 flex flex-col justify-between relative group overflow-hidden rounded-3xl border border-white/[0.05] hover:border-[#8b5cf6]/30 transition-all duration-300 md:col-span-1 min-h-[380px]"
             >
               <div className="absolute left-0 top-0 bottom-0 w-[3px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-b from-[#8b5cf6] to-transparent" />
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none bg-[radial-gradient(circle_at_10%_10%,#8b5cf608_0%,transparent_60%)]" />
@@ -235,7 +235,7 @@ export default function ServicesPage() {
                   <FileText className="w-6 h-6 text-[#8b5cf6]" />
                 </div>
                 <h3 className="font-syne font-extrabold text-white text-2xl mb-3">Automated Invoicing</h3>
-                <p className="text-slate-400 text-sm leading-relaxed mb-6">
+                <p className="text-slate-600 text-sm leading-relaxed mb-6">
                   Generate branded invoices instantly and deliver them automatically through WhatsApp in multiple languages.
                 </p>
               </div>
@@ -272,7 +272,7 @@ export default function ServicesPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="glass p-8 flex flex-col justify-between relative group overflow-hidden rounded-3xl border border-white/[0.05] hover:border-[#f59e0b]/30 transition-all duration-300 md:col-span-1 min-h-[380px]"
+              className="glass-new1 p-8 flex flex-col justify-between relative group overflow-hidden rounded-3xl border border-white/[0.05] hover:border-[#f59e0b]/30 transition-all duration-300 md:col-span-1 min-h-[380px]"
             >
               <div className="absolute left-0 top-0 bottom-0 w-[3px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-b from-[#f59e0b] to-transparent" />
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none bg-[radial-gradient(circle_at_10%_10%,#f59e0b08_0%,transparent_60%)]" />
@@ -282,7 +282,7 @@ export default function ServicesPage() {
                   <Megaphone className="w-6 h-6 text-[#f59e0b]" />
                 </div>
                 <h3 className="font-syne font-extrabold text-white text-2xl mb-3">Broadcast Campaigns</h3>
-                <p className="text-slate-400 text-sm leading-relaxed mb-6">
+                <p className="text-slate-600 text-sm leading-relaxed mb-6">
                   Send promotions, offers, announcements, and updates to your customer base with high-open-rate WhatsApp campaigns.
                 </p>
               </div>
@@ -314,7 +314,7 @@ export default function ServicesPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="glass p-8 flex flex-col justify-between relative group overflow-hidden rounded-3xl border border-white/[0.05] hover:border-[#3b6cf4]/30 transition-all duration-300 md:col-span-1 min-h-[380px]"
+              className="glass-new1 p-8 flex flex-col justify-between relative group overflow-hidden rounded-3xl border border-white/[0.05] hover:border-[#3b6cf4]/30 transition-all duration-300 md:col-span-1 min-h-[380px]"
             >
               <div className="absolute left-0 top-0 bottom-0 w-[3px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-b from-[#3b6cf4] to-transparent" />
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none bg-[radial-gradient(circle_at_10%_10%,#3b6cf408_0%,transparent_60%)]" />
@@ -326,7 +326,7 @@ export default function ServicesPage() {
                       <LineChart className="w-6 h-6 text-[#3b6cf4]" />
                     </div>
                     <h3 className="font-syne font-extrabold text-white text-2xl lg:text-3xl mb-4">Analytics Dashboard</h3>
-                    <p className="text-slate-400 text-sm lg:text-base leading-relaxed">
+                    <p className="text-slate-600 text-sm lg:text-base leading-relaxed">
                       Track revenue, orders, customer activity, and operational performance in real time from one central system.
                     </p>
                   </div>
@@ -334,9 +334,9 @@ export default function ServicesPage() {
                     <span className="text-[10px] font-syne font-bold uppercase tracking-wider text-[#3b6cf4] bg-[#3b6cf4]/08 px-3 py-1.5 rounded-full border border-[#3b6cf4]/15">
                       Live Performance
                     </span>
-                    <span className="text-[10px] font-syne font-bold uppercase tracking-wider text-slate-400 bg-white/[0.03] px-3 py-1.5 rounded-full border border-white/[0.05]">
+                    {/* <span className="text-[10px] font-syne font-bold uppercase tracking-wider text-slate-400 bg-white/[0.03] px-3 py-1.5 rounded-full border border-white/[0.05]">
                       Export CSV/PDF
-                    </span>
+                    </span> */}
                   </div>
                 </div>
 
@@ -396,9 +396,10 @@ export default function ServicesPage() {
             />
           </ScrollReveal>
 
-          <div className="relative flex flex-col gap-6 md:gap-0 md:grid md:grid-cols-5">
-            {/* Timeline connector line (hidden on mobile) */}
-            <div className="hidden md:block absolute top-[44px] left-8 right-8 h-px bg-gradient-to-r from-[#00e699]/30 via-[#00f0ff]/30 to-[#8b5cf6]/10" />
+          {/* ── Desktop: 5-col grid ── */}
+          <div className="hidden md:grid md:grid-cols-5 relative md:gap-0">
+            {/* Timeline connector line */}
+            <div className="absolute top-[44px] left-8 right-8 h-px bg-gradient-to-r from-[#00e699]/30 via-[#00f0ff]/30 to-[#8b5cf6]/10" />
 
             {steps.map(({ num, icon: Icon, title, desc }, i) => (
               <motion.div
@@ -407,26 +408,67 @@ export default function ServicesPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: i * 0.1 }}
-                className="relative flex flex-col md:items-center text-left md:text-center px-4"
+                className="relative flex flex-col items-center text-center px-4"
               >
-                {/* Mobile connector line */}
-                {i < steps.length - 1 && (
-                  <div className="md:hidden absolute left-8 top-16 bottom-0 w-px bg-gradient-to-b from-[#00e699]/30 to-transparent" />
-                )}
-                {/* Bullet badge */}
                 <div className="w-16 h-16 rounded-full bg-[#0a0f1e] border border-white/[0.08] flex items-center justify-center mb-6 relative z-10 shadow-lg group hover:border-[#00e699] transition-colors">
                   <Icon className="w-6 h-6 text-[#00e699]" />
-                  
-                  {/* Step counter tag */}
                   <span className="absolute -top-1 -right-1 bg-white/[0.06] border border-white/[0.1] text-slate-400 font-syne font-bold text-[9px] w-5 h-5 rounded-full flex items-center justify-center">
                     {num}
                   </span>
                 </div>
-
                 <h4 className="font-syne font-bold text-white text-base mb-3 leading-snug">{title}</h4>
-                <p className="text-slate-500 text-xs leading-relaxed max-w-[200px] md:mx-auto">{desc}</p>
+                <p className="text-slate-500 text-xs leading-relaxed max-w-[200px] mx-auto">{desc}</p>
               </motion.div>
             ))}
+          </div>
+
+          {/* ── Mobile: horizontal scroll carousel (right → left) ── */}
+          <div className="md:hidden relative">
+            {/* Fade-edge masks */}
+            <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-6 z-10"
+              style={{ background: "linear-gradient(to right, #030712, transparent)" }} />
+            <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-6 z-10"
+              style={{ background: "linear-gradient(to left, #030712, transparent)" }} />
+
+            <div
+              className="flex gap-4 overflow-x-auto pb-4 no-scrollbar"
+              style={{
+                scrollSnapType: "x mandatory",
+                WebkitOverflowScrolling: "touch",
+              }}
+            >
+              {steps.map(({ num, icon: Icon, title, desc }, i) => (
+                <motion.div
+                  key={title}
+                  initial={{ opacity: 0, x: 40 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: i * 0.08 }}
+                  className="flex-shrink-0 flex flex-col items-center text-center px-4 py-6 rounded-2xl"
+                  style={{
+                    scrollSnapAlign: "center",
+                    width: "clamp(160px, 58vw, 220px)",
+                    background: "rgba(10,15,30,0.7)",
+                    border: "1px solid rgba(255,255,255,0.07)",
+                    backdropFilter: "blur(10px)",
+                  }}
+                >
+                  <div className="w-14 h-14 rounded-full bg-[#0a0f1e] border border-white/[0.08] flex items-center justify-center mb-4 relative shadow-lg">
+                    <Icon className="w-5 h-5 text-[#00e699]" />
+                    <span className="absolute -top-1 -right-1 bg-white/[0.06] border border-white/[0.1] text-slate-400 font-syne font-bold text-[9px] w-5 h-5 rounded-full flex items-center justify-center">
+                      {num}
+                    </span>
+                  </div>
+                  <h4 className="font-syne font-bold text-white text-sm mb-2 leading-snug">{title}</h4>
+                  <p className="text-slate-500 text-[11px] leading-relaxed">{desc}</p>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Swipe hint */}
+            <p className="text-center text-slate-600 text-[10px] tracking-widest uppercase mt-1 select-none">
+              swipe to explore →
+            </p>
           </div>
         </div>
       </section>

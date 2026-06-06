@@ -1,7 +1,7 @@
 import React from "react";
 
 interface SectionHeaderProps {
-  badge?: string;
+  badge?: React.ReactNode;
   title: string | React.ReactNode;
   subtitle?: string;
   align?: "center" | "left";

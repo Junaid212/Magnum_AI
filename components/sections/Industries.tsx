@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import {
   Banknote,
@@ -95,9 +96,135 @@ const cardVariants = {
   },
 };
 
-export default function Industries() {
+/* ── Shared card body ── */
+function IndustryCard({
+  icon: Icon,
+  label,
+  desc,
+  color,
+  bg,
+  tag,
+}: (typeof industries)[number]) {
   return (
-    <section className="relative overflow-hidden" style={{ padding: "100px 0", backgroundImage: "url(/images/114.webp)" }}>
+    <div
+      className="group relative rounded-2xl p-6 cursor-default h-full"
+      style={{
+        background: "#f2f2f25b",
+        border: "1px solid #e2e8f0",
+        boxShadow: "0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04)",
+        transition: "box-shadow 0.3s ease, border-color 0.3s ease",
+      }}
+      onMouseEnter={(e) => {
+        (e.currentTarget as HTMLElement).style.boxShadow = `0 8px 32px rgba(0,0,0,0.10), 0 0 0 1.5px ${color}40`;
+        (e.currentTarget as HTMLElement).style.borderColor = `${color}60`;
+      }}
+      onMouseLeave={(e) => {
+        (e.currentTarget as HTMLElement).style.boxShadow =
+          "0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04)";
+        (e.currentTarget as HTMLElement).style.borderColor = "#e2e8f0";
+      }}
+    >
+      {/* Top row: icon + tag */}
+      <div className="flex items-start justify-between mb-5">
+        <div
+          className="flex items-center justify-center rounded-xl transition-transform duration-300 group-hover:scale-110"
+          style={{ width: 52, height: 52, background: bg, border: `1.5px solid ${color}30` }}
+        >
+          <Icon style={{ color, width: 22, height: 22 }} />
+        </div>
+        <span
+          className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full"
+          style={{ background: `${color}12`, color, border: `1px solid ${color}25` }}
+        >
+          {tag}
+        </span>
+      </div>
+
+      <h3 className="font-syne font-bold text-sm mb-2 leading-snug" style={{ color: "#0f172a" }}>
+        {label}
+      </h3>
+      <p className="text-xs leading-relaxed mb-5" style={{ color: "#64748b" }}>
+        {desc}
+      </p>
+
+      {/* Bottom CTA line */}
+      <div className="flex items-center gap-1.5 overflow-hidden">
+        <div
+          className="h-[2px] rounded-full transition-all duration-500"
+          style={{ width: 0, background: `linear-gradient(90deg, ${color}, transparent)` }}
+          ref={(el) => {
+            if (!el) return;
+            const parent = el.closest(".group") as HTMLElement | null;
+            if (!parent) return;
+            const enter = () => { el.style.width = "36px"; };
+            const leave = () => { el.style.width = "0px"; };
+            parent.addEventListener("mouseenter", enter);
+            parent.addEventListener("mouseleave", leave);
+          }}
+        />
+        <span
+          className="text-[11px] font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center gap-1"
+          style={{ color }}
+        >
+          Learn more <ArrowUpRight size={11} />
+        </span>
+      </div>
+    </div>
+  );
+}
+
+export default function Industries() {
+  const trackRef = useRef<HTMLDivElement>(null);
+
+  /* Auto-scroll right→left when section enters viewport (mobile only) */
+  useEffect(() => {
+    const track = trackRef.current;
+    if (!track) return;
+
+    let animId: number;
+    let started = false;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !started) {
+          started = true;
+          const start = track.scrollLeft;
+          const end = track.scrollWidth - track.clientWidth;
+          const duration = 2800;
+          let t0: number | null = null;
+
+          const step = (ts: number) => {
+            if (!t0) t0 = ts;
+            const elapsed = ts - t0;
+            const progress = Math.min(elapsed / duration, 1);
+            // cubic ease-in-out
+            const eased =
+              progress < 0.5
+                ? 4 * progress * progress * progress
+                : 1 - Math.pow(-2 * progress + 2, 3) / 2;
+            track.scrollLeft = start + (end - start) * eased;
+            if (progress < 1) animId = requestAnimationFrame(step);
+          };
+
+          animId = requestAnimationFrame(step);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.35 }
+    );
+
+    observer.observe(track);
+    return () => {
+      observer.disconnect();
+      cancelAnimationFrame(animId);
+    };
+  }, []);
+
+  return (
+    <section
+      className="relative overflow-hidden"
+      style={{ padding: "100px 0", backgroundImage: "url(/images/114.webp)" }}
+    >
       {/* Subtle pattern overlay */}
       <div
         className="absolute inset-0 pointer-events-none"
@@ -117,8 +244,7 @@ export default function Industries() {
           width: "480px",
           height: "480px",
           borderRadius: "50%",
-          background:
-            "radial-gradient(circle, rgba(0,230,153,0.12) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(0,230,153,0.12) 0%, transparent 70%)",
           filter: "blur(60px)",
         }}
       />
@@ -130,8 +256,7 @@ export default function Industries() {
           width: "400px",
           height: "400px",
           borderRadius: "50%",
-          background:
-            "radial-gradient(circle, rgba(59,108,244,0.10) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(59,108,244,0.10) 0%, transparent 70%)",
           filter: "blur(60px)",
         }}
       />
@@ -145,7 +270,6 @@ export default function Industries() {
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         >
-          {/* Badge */}
           <span
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest mb-6"
             style={{
@@ -170,10 +294,7 @@ export default function Industries() {
 
           <h2
             className="font-syne font-extrabold leading-tight tracking-tight mb-4"
-            style={{
-              fontSize: "clamp(32px, 4vw, 52px)",
-              color: "#0f172a",
-            }}
+            style={{ fontSize: "clamp(32px, 4vw, 52px)", color: "#0f172a" }}
           >
             Built for businesses{" "}
             <span
@@ -191,154 +312,62 @@ export default function Industries() {
             className="mx-auto text-base leading-relaxed"
             style={{ color: "#64748b", maxWidth: 520 }}
           >
-            Our modular AI platform adapts to the unique complexity and
-            demands of every sector — from food to finance.
+            Our modular AI platform adapts to the unique complexity and demands of every sector —
+            from food to finance.
           </p>
         </motion.div>
 
-        {/* Cards Grid */}
+        {/* ── Mobile: horizontal scroll carousel (right → left) ── */}
+        <div className="sm:hidden relative">
+          {/* Fade-edge masks */}
+          <div
+            className="pointer-events-none absolute left-0 top-0 bottom-4 w-8 z-10"
+            // style={{ background: "linear-gradient(to right, rgba(255,255,255,0.95), transparent)" }}
+          />
+          <div
+            className="pointer-events-none absolute right-0 top-0 bottom-4 w-8 z-10"
+            // style={{ background: "linear-gradient(to left, rgba(255,255,255,0.95), transparent)" }}
+          />
+
+          <div
+            ref={trackRef}
+            className="flex gap-4 overflow-x-auto pb-4 no-scrollbar"
+            style={{ scrollSnapType: "x mandatory", WebkitOverflowScrolling: "touch" }}
+          >
+            {industries.map((industry, i) => (
+              <motion.div
+                key={industry.label}
+                initial={{ opacity: 0, x: 40 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.06 }}
+                className="flex-shrink-0"
+                style={{ scrollSnapAlign: "center", width: "clamp(220px, 72vw, 280px)" }}
+              >
+                <IndustryCard {...industry} />
+              </motion.div>
+            ))}
+          </div>
+
+          <p className="text-center text-slate-400 text-[10px] tracking-widest uppercase mt-1 select-none">
+            swipe to explore →
+          </p>
+        </div>
+
+        {/* ── Desktop / tablet: original grid ── */}
         <motion.div
-          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5"
+          className="hidden sm:grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-60px" }}
         >
-          {industries.map(({ icon: Icon, label, desc, color, bg, tag }) => (
-            <motion.div
-              key={label}
-              variants={cardVariants}
-              whileHover={{ y: -6, transition: { duration: 0.3, ease: [0.22, 1, 0.36, 1] } }}
-              className="group relative rounded-2xl p-6 cursor-default"
-              style={{
-                background: "#f2f2f25b",
-                border: "1px solid #e2e8f0",
-                boxShadow: "0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04)",
-                transition: "box-shadow 0.3s ease, border-color 0.3s ease",
-              }}
-              onMouseEnter={(e) => {
-                (e.currentTarget as HTMLElement).style.boxShadow = `0 8px 32px rgba(0,0,0,0.10), 0 0 0 1.5px ${color}40`;
-                (e.currentTarget as HTMLElement).style.borderColor = `${color}60`;
-              }}
-              onMouseLeave={(e) => {
-                (e.currentTarget as HTMLElement).style.boxShadow =
-                  "0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04)";
-                (e.currentTarget as HTMLElement).style.borderColor = "#e2e8f0";
-              }}
-            >
-              {/* Top row: icon + tag */}
-              <div className="flex items-start justify-between mb-5">
-                {/* Icon chip */}
-                <div
-                  className="flex items-center justify-center rounded-xl transition-transform duration-300 group-hover:scale-110"
-                  style={{
-                    width: 52,
-                    height: 52,
-                    background: bg,
-                    border: `1.5px solid ${color}30`,
-                  }}
-                >
-                  <Icon style={{ color, width: 22, height: 22 }} />
-                </div>
-
-                {/* Pill tag */}
-                <span
-                  className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full"
-                  style={{
-                    background: `${color}12`,
-                    color: color,
-                    border: `1px solid ${color}25`,
-                  }}
-                >
-                  {tag}
-                </span>
-              </div>
-
-              {/* Label */}
-              <h3
-                className="font-syne font-bold text-sm mb-2 leading-snug"
-                style={{ color: "#0f172a" }}
-              >
-                {label}
-              </h3>
-
-              {/* Description */}
-              <p className="text-xs leading-relaxed mb-5" style={{ color: "#64748b" }}>
-                {desc}
-              </p>
-
-              {/* Bottom CTA line */}
-              <div className="flex items-center gap-1.5 overflow-hidden">
-                <div
-                  className="h-[2px] rounded-full transition-all duration-500"
-                  style={{
-                    width: 0,
-                    background: `linear-gradient(90deg, ${color}, transparent)`,
-                  }}
-                  ref={(el) => {
-                    if (!el) return;
-                    const parent = el.closest(".group") as HTMLElement | null;
-                    if (!parent) return;
-                    const enter = () => { el.style.width = "36px"; };
-                    const leave = () => { el.style.width = "0px"; };
-                    parent.addEventListener("mouseenter", enter);
-                    parent.addEventListener("mouseleave", leave);
-                  }}
-                />
-                <span
-                  className="text-[11px] font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center gap-1"
-                  style={{ color }}
-                >
-                  Learn more <ArrowUpRight size={11} />
-                </span>
-              </div>
+          {industries.map((industry) => (
+            <motion.div key={industry.label} variants={cardVariants}>
+              <IndustryCard {...industry} />
             </motion.div>
           ))}
         </motion.div>
-
-        {/* Bottom stats strip */}
-        {/* <motion.div
-          className="mt-14 rounded-2xl p-6 flex flex-wrap gap-6 items-center justify-between"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          style={{
-            background: "linear-gradient(135deg, #0f172a 0%, #1e293b 100%)",
-            border: "1px solid rgba(255,255,255,0.08)",
-          }}
-        >
-          <div className="flex flex-col gap-1">
-            <span className="text-xs font-semibold uppercase tracking-widest" style={{ color: "#94a3b8" }}>
-              Industries covered
-            </span>
-            <span className="text-3xl font-extrabold font-syne" style={{ color: "#00e699" }}>
-              8+
-            </span>
-          </div>
-          <div className="h-8 w-px hidden sm:block" style={{ background: "rgba(255,255,255,0.1)" }} />
-          <div className="flex flex-col gap-1">
-            <span className="text-xs font-semibold uppercase tracking-widest" style={{ color: "#94a3b8" }}>
-              Clients served
-            </span>
-            <span className="text-3xl font-extrabold font-syne text-white">50+</span>
-          </div>
-          <div className="h-8 w-px hidden sm:block" style={{ background: "rgba(255,255,255,0.1)" }} />
-          <div className="flex flex-col gap-1">
-            <span className="text-xs font-semibold uppercase tracking-widest" style={{ color: "#94a3b8" }}>
-              Avg. ROI uplift
-            </span>
-            <span className="text-3xl font-extrabold font-syne" style={{ color: "#00f0ff" }}>
-              3.2×
-            </span>
-          </div>
-          <div className="h-8 w-px hidden sm:block" style={{ background: "rgba(255,255,255,0.1)" }} />
-          <div className="ml-auto">
-            <button className="btn-primary text-sm px-6 py-3">
-              Explore all solutions
-            </button>
-          </div>
-        </motion.div> */}
       </div>
     </section>
   );

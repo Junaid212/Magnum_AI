@@ -97,7 +97,7 @@ export default function AboutPage() {
       </section>
 
       {/* ── STATS SECTION ── */}
-      <section className="relative py-16 border-y border-white/[0.06] bg-[#030712]/50">
+      {/* <section className="relative py-16 border-y border-white/[0.06] bg-[#030712]/50">
         <div className="absolute inset-0 canvas-grid opacity-20" />
         <div className="relative container z-10">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8">
@@ -127,7 +127,7 @@ export default function AboutPage() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* ── WHO WE ARE / THE VISION ── */}
       <section className="relative section-pad overflow-hidden">
@@ -208,7 +208,7 @@ export default function AboutPage() {
         <div className="relative container z-10">
           <ScrollReveal className="mb-16">
             <SectionHeader
-              badge="Why Magnum AI" 
+              badge ={<span className="badge-new">Why Magnum AI</span>}
               title={<>Why businesses choose  <span className="text-gradient">MagnumAI.</span></>}
               // subtitle="Cohesive processes, reliable architecture, and client integration shape every single deployment."
             />
@@ -223,7 +223,7 @@ export default function AboutPage() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.55, delay: i * 0.1 }}
                 whileHover={{ y: -6 }}
-                className="glass glass-hover p-6 flex flex-col gap-4 cursor-default"
+                className="glass-new glass-hover p-6 flex flex-col gap-4 cursor-default"
               >
                 <div 
                   className="w-12 h-12 rounded-2xl flex items-center justify-center"
