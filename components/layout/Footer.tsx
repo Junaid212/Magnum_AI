@@ -2,13 +2,15 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { ArrowRight, Twitter, Linkedin, Github, Instagram, Facebook } from "lucide-react";
+import { ArrowRight, Twitter, Linkedin, Github, Instagram, Facebook, MapPin, Mail, Phone } from "lucide-react";
 
-const cols = {
-  Services: ["WhatsApp Automation", "Smart Order Management", "Automated Invoicing", "Broadcast Campaigns", "Analytics Dashboard"],
-  Company:  ["About Us", "Service", "Contact"],
-  // Resources:["Documentation", "API Reference", "Case Studies", "Whitepapers", "Community", "Status"],
-};
+const serviceLinks = ["WhatsApp Automation", "Smart Order Management", "Automated Invoicing", "Broadcast Campaigns", "Analytics Dashboard"];
+
+const contactItems = [
+  { icon: MapPin, text: "123 Business Ave, Suite 400\nNew York, NY 10001, USA" },
+  { icon: Mail,   text: "hello@magnum.ai",  href: "mailto:hello@magnum.ai" },
+  { icon: Phone,  text: "+1 (800) 555-0199", href: "tel:+18005550199" },
+];
 
 const socials = [
   { icon: Twitter,   href: "#", label: "Twitter"  },
@@ -70,14 +72,18 @@ export default function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-10 mb-16">
           {/* Brand column */}
           <div className="col-span-2 lg:col-span-2">
-            <a href="#hero" className="flex items-center gap-2.5 mb-5">
+            <a href="#hero" className="flex items-center gap-3 mb-5">
               <Image
-                src="/images/mag-logo.png"
+                src="/images/logo-mag.png"
                 alt="Magnum AI"
-                width={140}
-                height={40}
+                width={80}
+                height={50}
                 className="object-contain"
               />
+              <div className="flex flex-col leading-tight">
+                <span className="font-syne font-black text-white text-base text-xl tracking-tight">Magnum AI</span>
+                <span className="text-[#00e699] text-xs font-semibold tracking-[0.12em] uppercase">Automation</span>
+              </div>
             </a>
             <p className="text-slate-500 text-sm leading-relaxed mb-6 max-w-xs">
               The leading AI agency helping ambitious businesses unlock transformative growth through intelligent automation.
@@ -97,21 +103,40 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Link columns */}
-          {Object.entries(cols).map(([section, links]) => (
-            <div key={section}>
-              <h4 className="font-syne font-bold text-xs text-white uppercase tracking-[0.15em] mb-5">{section}</h4>
-              <ul className="flex flex-col gap-3">
-                {links.map((link) => (
-                  <li key={link}>
-                    <a href="#" className="text-slate-500 text-sm hover:text-[#00e699] transition-colors duration-200">
-                      {link}
+          {/* Services column */}
+          <div className="hidden md:block">
+            <h4 className="font-syne font-bold text-xs text-white uppercase tracking-[0.15em] mb-5">Services</h4>
+            <ul className="flex flex-col gap-3">
+              {serviceLinks.map((link) => (
+                <li key={link}>
+                  <a href="#" className="text-slate-500 text-sm hover:text-[#00e699] transition-colors duration-200">
+                    {link}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Contact Us column */}
+          <div>
+            <h4 className="font-syne font-bold text-xs text-white uppercase tracking-[0.15em] mb-5">Contact Us</h4>
+            <ul className="flex flex-col gap-4">
+              {contactItems.map(({ icon: Icon, text, href }) => (
+                <li key={text} className="flex items-start gap-3">
+                  <span className="mt-0.5 flex-shrink-0 w-7 h-7 rounded-lg border border-[#00e699]/20 bg-[#00e699]/05 flex items-center justify-center">
+                    <Icon className="w-3.5 h-3.5 text-[#00e699]" />
+                  </span>
+                  {href ? (
+                    <a href={href} className="text-slate-500 text-sm leading-snug hover:text-[#00e699] transition-colors duration-200 whitespace-pre-line">
+                      {text}
                     </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+                  ) : (
+                    <span className="text-slate-500 text-sm leading-snug whitespace-pre-line">{text}</span>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
 
         {/* Bottom bar */}
@@ -119,13 +144,13 @@ export default function Footer() {
           <p className="text-slate-600 text-sm">
             © {new Date().getFullYear()} MagnumAI. All rights reserved.
           </p>
-          {/* <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
-            {["Privacy Policy", "Terms of Service", "Cookie Policy"].map((item) => (
+          <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
+            {["About Us", "Services", "Contact "].map((item) => (
               <a key={item} href="#" className="text-slate-600 text-xs sm:text-sm hover:text-slate-400 transition-colors">
                 {item}
               </a>
             ))}
-          </div> */}
+          </div>
         </div>
       </div>
     </footer>
